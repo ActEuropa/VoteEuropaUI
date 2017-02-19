@@ -588,6 +588,7 @@ a:focus {
 }
 .nav.child_menu {
   display: none;
+  background-color: #00355f;
 }
 .nav.child_menu li:hover,
 .nav.child_menu li.active {
@@ -2219,9 +2220,6 @@ select.parsley-error {
 }
 /* ***** /autocomplete *****/
 /* ***** buttons ********/
-.btn {
-  border-radius: 3px;
-}
 a.btn-success,
 a.btn-primary,
 a.btn-warning,
@@ -2254,7 +2252,7 @@ a.btn-danger {
   border-color: #002F55;
 }
 .btn-round {
-  border-radius: 30px;
+  border-radius: 10px;
 }
 .btn.btn-app {
   position: relative;
@@ -2334,9 +2332,6 @@ textarea:focus {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
   border: 1px solid #cccccc;
   border-bottom-color: #b3b3b3;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -2374,7 +2369,7 @@ textarea:focus {
 }
 .bs-glyphicons li:hover {
   color: #fff;
-  background-color: #1ABB9C;
+  background-color: #004b88;
 }
 @media (min-width: 768px) {
   .bs-glyphicons {
@@ -2402,7 +2397,7 @@ span.tag {
   float: left;
   padding: 5px 9px;
   text-decoration: none;
-  background: #1ABB9C;
+  background: #0059a2;
   color: #F1F6F7;
   margin-right: 5px;
   font-weight: 500;
@@ -2532,7 +2527,7 @@ ul.timeline li {
 }
 .tag {
   line-height: 1;
-  background: #1ABB9C;
+  background: #0059a2;
   color: #fff !important;
 }
 .tag:after {
@@ -2546,7 +2541,7 @@ ul.timeline li {
   pointer-events: none;
   border-top: 14px solid transparent;
   border-bottom: 14px solid transparent;
-  border-left: 11px solid #1ABB9C;
+  border-left: 11px solid #0059a2;
 }
 .timeline h2.title {
   position: relative;
@@ -2746,8 +2741,8 @@ ul.widget_profile_box li a {
   padding: 0px;
 }
 ul.widget_profile_box li a:hover {
-  color: #1ABB9C !important;
-  border: 1px solid #26b99a;
+  color: #0059a2 !important;
+  border: 1px solid #0059a2;
 }
 ul.widget_profile_box li .profile_img {
   width: 85px;
@@ -2939,7 +2934,7 @@ ul.project_files li a i {
   background: #fff;
 }
 .pricing .title {
-  background: #1ABB9C;
+  background: #0059a2;
   height: 110px;
   color: #fff;
   padding: 15px 0 0;
@@ -3330,7 +3325,8 @@ ul.project_files li a i {
 /* *********  /ecommerce  **************************** */
 /** login **/
 .login {
-  background: #F7F7F7;
+  background: #002F55;
+  color: #DEB645;
 }
 .login .fa-paw {
   font-size: 26px;
@@ -3428,7 +3424,6 @@ form:after {
   padding: 25px 0 0;
   position: relative;
   text-align: center;
-  text-shadow: 0 1px 0 #fff;
   min-width: 280px;
 }
 .login_content a,
@@ -3503,31 +3498,17 @@ form:after {
 .login_content form input[type="text"],
 .login_content form input[type="email"],
 .login_content form input[type="password"] {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-  -moz-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-  -ms-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-  -o-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-  box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-  border: 1px solid #c8c8c8;
-  color: #777;
+  border: 0;
+  color: #E8E8D8;
   margin: 0 0 20px;
   width: 100%;
+  background: #00213b;
 }
 .login_content form input[type="text"]:focus,
 .login_content form input[type="email"]:focus,
 .login_content form input[type="password"]:focus {
-  -webkit-box-shadow: 0 0 2px #AA77B4 inset;
-  -moz-box-shadow: 0 0 2px #ed1c24 inset;
-  -ms-box-shadow: 0 0 2px #ed1c24 inset;
-  -o-box-shadow: 0 0 2px #ed1c24 inset;
-  box-shadow: 0 0 2px #A97AAD inset;
-  background-color: #fff;
-  border: 1px solid #A878AF;
+  background-color: #003d6f;
+  border: 1px solid #DEB645;
   outline: none;
 }
 #username {
@@ -4072,8 +4053,8 @@ ul.verticle_bars li {
 /** PNotify **/
 .alert-success {
   color: #ffffff;
-  background-color: rgba(38, 185, 154, 0.88);
-  border-color: rgba(38, 185, 154, 0.88);
+  background-color: rgba(199, 62, 18, 0.9);
+  border-color: rgba(199, 62, 18, 0.9);
 }
 .alert-info {
   color: #E9EDEF;

@@ -679,6 +679,7 @@ a:focus {
 
 .nav.child_menu {
 	display: none;
+	background-color: #00355f;
 }
 
 .nav.child_menu li:hover,
@@ -2546,10 +2547,6 @@ select.parsley-error {
 	font-weight: bolder;
 }
 
-.btn {
-	border-radius: 3px;
-}
-
 a.btn-success,
 a.btn-primary,
 a.btn-warning,
@@ -2589,7 +2586,7 @@ a.btn-danger {
 }
 
 .btn-round {
-	border-radius: 30px;
+	border-radius: 10px;
 }
 
 .btn.btn-app {
@@ -2665,7 +2662,6 @@ textarea:focus {
 	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 	border: 1px solid #cccccc;
 	border-bottom-color: #b3b3b3;
-	border-radius: 4px;
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
@@ -2706,7 +2702,7 @@ textarea:focus {
 .bs-glyphicons li:hover,
 .bs-glyphicons li:focus {
 	color: #fff;
-	background-color: #1ABB9C;
+	background-color: #004b88;
 }
 
 .tagsinput {
@@ -2724,7 +2720,7 @@ span.tag {
 	float: left;
 	padding: 5px 9px;
 	text-decoration: none;
-	background: #1ABB9C;
+	background: #0059a2;
 	color: #F1F6F7;
 	margin-right: 5px;
 	font-weight: 500;
@@ -2874,7 +2870,7 @@ ul.timeline li {
 
 .tag {
 	line-height: 1;
-	background: #1ABB9C;
+	background: #0059a2;
 	color: #fff !important;
 }
 
@@ -2889,7 +2885,7 @@ ul.timeline li {
 	pointer-events: none;
 	border-top: 14px solid transparent;
 	border-bottom: 14px solid transparent;
-	border-left: 11px solid #1ABB9C;
+	border-left: 11px solid #0059a2;
 }
 
 .timeline h2.title {
@@ -3122,8 +3118,8 @@ ul.widget_profile_box li a {
 
 ul.widget_profile_box li a:hover,
 ul.widget_profile_box li a:focus {
-	color: #1ABB9C !important;
-	border: 1px solid #26b99a;
+	color: #0059a2 !important;
+	border: 1px solid #0059a2;
 }
 
 ul.widget_profile_box li .profile_img {
@@ -3355,7 +3351,7 @@ ul.project_files li a i {
 }
 
 .pricing .title {
-	background: #1ABB9C;
+	background: #0059a2;
 	height: 110px;
 	color: #fff;
 	padding: 15px 0 0;
@@ -3804,7 +3800,8 @@ ul.project_files li a i {
 }
 
 .login {
-	background: #F7F7F7;
+	background: #002F55;
+	color: #DEB645;
 }
 
 .login .fa-paw {
@@ -3903,7 +3900,6 @@ form:after {
 	padding: 25px 0 0;
 	position: relative;
 	text-align: center;
-	text-shadow: 0 1px 0 #fff;
 	min-width: 280px;
 }
 
@@ -3975,24 +3971,18 @@ form:after {
 .login_content form input[type="text"],
 .login_content form input[type="email"],
 .login_content form input[type="password"] {
-	border-radius: 3px;
-	-ms-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-	-o-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-	box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0, 0, 0, 0.08) inset;
-	border: 1px solid #c8c8c8;
-	color: #777;
+	border: 0;
+	color: #E8E8D8;
 	margin: 0 0 20px;
 	width: 100%;
+	background: #00213b;
 }
 
 .login_content form input[type="text"]:focus,
 .login_content form input[type="email"]:focus,
 .login_content form input[type="password"]:focus {
-	-ms-box-shadow: 0 0 2px #ed1c24 inset;
-	-o-box-shadow: 0 0 2px #ed1c24 inset;
-	box-shadow: 0 0 2px #A97AAD inset;
-	background-color: #fff;
-	border: 1px solid #A878AF;
+	background-color: #003d6f;
+	border: 1px solid #DEB645;
 	outline: none;
 }
 
@@ -4591,8 +4581,8 @@ ul.verticle_bars li {
 
 .alert-success {
 	color: #ffffff;
-	background-color: rgba(38, 185, 154, 0.88);
-	border-color: rgba(38, 185, 154, 0.88);
+	background-color: rgba(199, 62, 18, 0.9);
+	border-color: rgba(199, 62, 18, 0.9);
 }
 
 .alert-info {
