@@ -1,10 +1,7 @@
 # VoteEuropaUI
-Interface for our voting platform. 
+Interfaces for our voting platform.
 
-##Conceptal UI
-####Login page
-![Login page](http://i.imgur.com/f9R1vaN.png)
-####Voting page
-![Voting page](http://i.imgur.com/NuWLYqW.png)
-####"Voted" Page
-!["Voted" page](http://i.imgur.com/dw4vkP2.png)
+#### VotingUI
+Interace visible to anyone allowed to use VoteEuropa, allowing them to take part in votes and view results once they are closed.
+#### adminDashboard
+Interface visible to the administrators, allowing them to manage questions and view vote results in real time.
