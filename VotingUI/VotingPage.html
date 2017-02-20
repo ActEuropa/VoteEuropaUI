@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VoteEuropa</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Vollkorn" rel="stylesheet"> 
+</head>
+<body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="logoParent">
+        <img class="logo" src="img/Primary_Logo.svg" />
+    </div>
+    <h1><span style="color: #C73E12;">VOTE</span><span>EUROPA</span></h1>
+    <div class="view-table">
+        <div class="view-row">
+            <div class="selectionarea">
+                <table class="listitem" id="selected">
+                    <tbody>
+                        <tr>
+                            <td class="listitem_imgwrapper">
+                                <img class="voteIcon" src="img/vote_done.svg" />
+                            </td>
+                            <td>
+                                <h4>Question title (selected)</h4>
+                                <h5>Open for another {0} days ({1})</h5>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="listitem">
+                    <tbody>
+                        <tr>
+                            <td class="listitem_imgwrapper">
+                                <img class="voteIcon" src="img/vote_pending.svg" />
+                            </td>
+                            <td>
+                                <h4>Question title (unselected)</h4>
+                                <h5>Open for another {0} days ({1})</h5>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="votingarea">
+                <h2>Question title</h2>
+                <h3>Question subtitle</h3>
+                <div class="tablewrapper">
+                    <table class="voteoptions">
+                        <tbody>
+                            <tr>
+                                <td class="VoteButton" id="VoteOption1">YES</td>
+                                <td class="VoteButton" id="VoteOption2">NO</td>
+                            </tr>
+                            <tr>
+                                <td class="VoteButton" id="VoteOption3">MAYBE</td>
+                                <td class="VoteButton" id="VoteOption3">NO IDEA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a class="RedditLink" href="http://reddit.com/r/acteuropa">
+                    <img src="img/snoo.png" style="vertical-align:-50%;padding-right:6px" />
+                    DEBATE ON REDDIT
+                </a>
+                <a href="#logout" id="logoutbutton">Log out from [user]</a>
+            </div>
+        </div>
+        <a href="#archived" id="archivedbutton">&larr; View archived posts</a>
+    </div>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
