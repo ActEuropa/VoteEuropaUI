@@ -65,7 +65,7 @@ input {
     box-sizing: border-box;
     width: 100%;
     border-style: solid;
-    -webkit-transition: background 200ms, color 200ms, border-color 200ms;
+    transition: background 200ms, color 200ms, border-color 200ms;
 }
 input:hover { background: #00182c; color: #bfc7cd; }
 input:focus { background: #001221; border-color: #DEB645; color: white;}
@@ -93,6 +93,7 @@ input[type=submit]:focus { background: #e4c46a; color: #8b2b0c; border-color: #0
     background: #00294b;
     width: 40%;
     vertical-align:top;
+    order: 1;
 }
 .votingarea {
     box-sizing:border-box;
@@ -101,7 +102,9 @@ input[type=submit]:focus { background: #e4c46a; color: #8b2b0c; border-color: #0
     width:100%;
     margin:auto;
     padding:38px;
+    order: 0;
 }
+
 img.voteIcon
 {
     width:48px;
@@ -113,11 +116,11 @@ img.voteIcon
     vertical-align: top;
     height: 82px;
     width: 100%;
-    background: #00294b;
-}
-#selected {
     background: #001f38;
+    transition: background 200ms;
 }
+#unselected{background:#00294b;}
+#unselected:hover{background:#002443; cursor: pointer; }
 .listitem_imgwrapper{
     width:80px;
 }
@@ -176,7 +179,7 @@ td.VoteButton {
     color: #C73E12;
    padding:-38px;
    /* border: 24px solid #001f38;*/
-    -webkit-transition: background 200ms, color 200ms;
+    transition: background 200ms, color 200ms;
 }
 td.VoteButton:hover { background: #e1bd57; color: #9f310e; }
 td.VoteButton:active { background: #e4c46a; color: #8b2b0c; }
@@ -187,18 +190,30 @@ a{
     vertical-align: text-bottom;
     color: white;
     opacity: 0.34;
-    -webkit-transition: opacity 200ms;
+    transition: opacity 200ms;
 }
 a:hover{ opacity:0.6; }
 a:active{ opacity:0.8; }
 #logoutbutton {
     float: right;
-    margin-top: 14px
+    margin-top: 14px;
+    margin-left: 14px;
 }
 #archivedbutton {
     float:left;
     margin-top:4px;
 }
+
+
+/* RESPONSIVE CODE */
+@media screen and (max-width: 640px) {
+  .selectionarea { width:100%; }
+  .view-row { display: flex; flex-flow:column;}
+  .view-row > div { display: inline; }
+  #logoutbutton { float:left; margin-left: 0px; }
+}
+
+
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection rule sets have to be separate.
