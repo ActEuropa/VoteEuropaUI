@@ -16,7 +16,7 @@
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Vollkorn" rel="stylesheet"> 
 </head>
-<body>
+<body onload="VotingPage_Loaded()">
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -25,50 +25,22 @@
         <img class="logo" src="img/Primary_Logo.svg" />
     </div>
     <h1><span style="color: #C73E12;">VOTE</span><span>EUROPA</span></h1>
-    <div class="view-table_wrapper"> 
     <div class="view-table">
         <div class="view-row">
-            <div class="selectionarea">
-                <table class="listitem" id="selected">
-                    <tbody>
-                        <tr>
-                            <td class="listitem_imgwrapper">
-                                <img class="voteIcon" src="img/vote_done.svg" />
-                            </td>
-                            <td>
-                                <h4>Question title (selected)</h4>
-                                <h5>Open for another {0} days ({1})</h5>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table class="listitem" id="unselected">
-                    <tbody>
-                        <tr>
-                            <td class="listitem_imgwrapper">
-                                <img class="voteIcon" src="img/vote_pending.svg" />
-                            </td>
-                            <td>
-                                <h4>Question title (unselected)</h4>
-                                <h5>Open for another {0} days ({1})</h5>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="selectionarea"></div>
             <div class="votingarea">
-                <h2>Question title</h2>
-                <h3>Question subtitle</h3>
+                <h2 id="qtitle">Question title</h2>
+                <h3 id="qsubtitle" >Question subtitle</h3>
                 <div class="tablewrapper">
                     <table class="voteoptions">
                         <tbody>
                             <tr>
-                                <td class="VoteButton" id="VoteOption1">YES</td>
-                                <td class="VoteButton" id="VoteOption2">NO</td>
+                                <td class="VoteButton" id="qoption1">Option 1</td>
+                                <td class="VoteButton" id="qoption2">Option 2</td>
                             </tr>
                             <tr>
-                                <td class="VoteButton" id="VoteOption3">MAYBE</td>
-                                <td class="VoteButton" id="VoteOption3">NO IDEA</td>
+                                <td class="VoteButton" id="qoption3">Option 3</td>
+                                <td class="VoteButton" id="qoption4">Option 4</td>
                             </tr>
                         </tbody>
                     </table>
@@ -81,7 +53,6 @@
             </div>
         </div>
         <a href="#archived" id="archivedbutton">&larr; View archived posts</a>
-    </div>
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

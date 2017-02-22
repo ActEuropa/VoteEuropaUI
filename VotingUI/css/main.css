@@ -86,6 +86,7 @@ input[type=submit]:focus { background: #e4c46a; color: #8b2b0c; border-color: #0
     width: 100%;
     margin: auto;
     max-width: 800px;
+    transition: max-height 200ms;
 }
 .view-row { display: table-row; }
 .view-row > div { display: table-cell; }
@@ -116,11 +117,10 @@ img.voteIcon
     vertical-align: top;
     height: 82px;
     width: 100%;
-    background: #001f38;
     transition: background 200ms;
+    background:#00294b; 
+    cursor: pointer; 
 }
-#unselected{background:#00294b;}
-#unselected:hover{background:#002443; cursor: pointer; }
 .listitem_imgwrapper{
     width:80px;
 }
