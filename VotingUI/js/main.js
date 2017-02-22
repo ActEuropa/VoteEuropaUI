@@ -37,7 +37,9 @@ function LoadQuestions(page_nb)
     $('table.listitem').click(function() {
        var id = $(this).attr('id');
        $(this).siblings().css("background", "#00294b");
+       $(this).siblings().css("cursor","pointer");
        $(this).css("background", "#001f38");
+       $(this).css("cursor","default");
        for (i = 0; i < Questions.length; i++) 
        {
            if(Questions[i].id == id)
