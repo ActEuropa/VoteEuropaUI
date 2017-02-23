@@ -157,15 +157,16 @@ h3 {
     color: white;
     margin:0;
 }
-table.voteoptions {
+#voteoptions {
     table-layout:fixed;
     border-collapse:separate;
     border-spacing:24px;
     width: 100%;
-    
 }
-.tablewrapper {
+#tablewrapper {
     margin:0 -24px;
+    max-height: 280px;
+    overflow-y: auto;
 }
 td.VoteButton {
     font-family: Vollkorn, serif;
@@ -182,7 +183,7 @@ td.VoteButton {
     transition: background 200ms, color 200ms;
 }
 td.VoteButton:hover { background: #e1bd57; color: #9f310e; }
-td.VoteButton:active { background: #e4c46a; color: #8b2b0c; }
+td.VoteButton:active { background: #C73E12; color: #DEB645; }
 a{
     font-family: Vollkorn, serif;
     font-size: 1em;
