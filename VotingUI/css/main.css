@@ -17,7 +17,13 @@ select,
 textarea {
     color: #222;
 }
-
+#version_nb{
+    text-align: left;
+    opacity: 0.4;
+    position: absolute;
+    right: 8px;
+    margin-top: -22px;
+}
 body {
     background-color: #002F55;
     position:relative;
@@ -44,7 +50,7 @@ img.logo {
     margin:auto;
 }
 .logoParent{
-    margin:48px 72px 0px
+    margin: 24px 72px 0px
 }
 .center{
     margin:auto;
@@ -86,7 +92,6 @@ input[type=submit]:focus { background: #e4c46a; color: #8b2b0c; border-color: #0
     width: 100%;
     margin: auto;
     max-width: 800px;
-    transition: max-height 200ms;
 }
 .view-row { display: table-row; }
 .view-row > div { display: table-cell; }
@@ -117,9 +122,12 @@ img.voteIcon
     vertical-align: top;
     height: 82px;
     width: 100%;
-    transition: background 200ms;
+    transition: background 100ms;
     background:#00294b; 
-    cursor: pointer; 
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
 }
 .listitem_imgwrapper{
     width:80px;
@@ -165,7 +173,7 @@ h3 {
 }
 #tablewrapper {
     margin:0 -24px;
-    max-height: 280px;
+    max-height: 252px;
     overflow-y: auto;
 }
 td.VoteButton {
@@ -180,7 +188,7 @@ td.VoteButton {
     color: #C73E12;
    padding:-38px;
    /* border: 24px solid #001f38;*/
-    transition: background 200ms, color 200ms;
+    transition: background 100ms, color 200ms;
 }
 td.VoteButton:hover { background: #e1bd57; color: #9f310e; }
 td.VoteButton:active { background: #C73E12; color: #DEB645; }
