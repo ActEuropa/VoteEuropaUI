@@ -1,4 +1,4 @@
-function QuestionElement(id, title, subtitle, options, HasAnswered, expiredate, redditurl) {
+function QuestionElement(id, title, subtitle, options, HasAnswered, expiredate, redditurl, randomize) {
     this.id = id;
     this.title = title;
     this.subtitle = subtitle;
@@ -6,6 +6,7 @@ function QuestionElement(id, title, subtitle, options, HasAnswered, expiredate, 
     this.HasAnswered = HasAnswered;
     this.expiredate = expiredate;
     this.redditurl = redditurl;
+    this.randomize = randomize;
 }
 
 function VotingPage_Loaded()
@@ -14,11 +15,11 @@ function VotingPage_Loaded()
 }
 
 //Test questions:
-var qe1 = new QuestionElement(1, "How often should we have discord discussions?", "So, how often?", ["Weekly","Bi-weekly","Monthly","Never"], true, new Date(1490313600000),"reddit.com/r/test1")
-var qe2 = new QuestionElement(2, "Is ActEuropa going somewhere?", "Is it?", ["Yes","No","Maybe","Wtf"], true, new Date(1488326400000))
-var qe3 = new QuestionElement(3, "Who should we support in the French elections?", "There's the choice between various people, the main candidates being:", ["Emmanuel Macron","François Fillon","Benoît Hamon","Jean-Luc Mélenchon","Yannick Jadot","Marine Le Pen","Sylvain Duriff"], true, new Date(1491177600000), "reddit.com/r/test1")
-var qe4 = new QuestionElement(4, "Should all muslims be banned?", "🎵 I can show you the world 🎶 (Except the USA)", ["Yes","No"], false, new Date(1506556800000), "reddit.com/r/test1")
-var qe5 = new QuestionElement(5, "Which English food is the worst?", "This is a difficult question.", ["Marmite","Bangers and mash","Cobbler","Black pudding","Devilled kidneys","Jellied eels","Baked beans","Jelly","Pound cake","Spotted dick","Semolina pudding","Liver and onions","All of it"], false, new Date(1503556800000), "reddit.com/r/test1")
+var qe1 = new QuestionElement(1, "How often should we have discord discussions?", "So, how often?", ["Weekly","Bi-weekly","Monthly","Never"], true, new Date(1490313600000),"reddit.com/r/test1",true)
+var qe2 = new QuestionElement(2, "Is ActEuropa going somewhere?", "Is it?", ["Yes","No","Maybe","Wtf"], true, new Date(1488326400000),true)
+var qe3 = new QuestionElement(3, "Who should we support in the French elections?", "There's the choice between various people, the main candidates being:", ["Emmanuel Macron","François Fillon","Benoît Hamon","Jean-Luc Mélenchon","Yannick Jadot","Marine Le Pen","Sylvain Duriff"], true, new Date(1491177600000), "reddit.com/r/test1",true)
+var qe4 = new QuestionElement(4, "Should all muslims be banned?", "🎵 I can show you the world 🎶 (Except the USA)", ["Yes","No"], false, new Date(1506556800000), "reddit.com/r/test1",true)
+var qe5 = new QuestionElement(5, "Which English food is the worst?", "This is a difficult question.", ["Marmite","Bangers and mash","Cobbler","Black pudding","Devilled kidneys","Jellied eels","Baked beans","Jelly","Pound cake","Spotted dick","Semolina pudding","Liver and onions","All of it"], false, new Date(1503556800000), "reddit.com/r/test1",true)
 
 var Questions = [qe1,qe2,qe3,qe4, qe5];
 
@@ -31,8 +32,11 @@ function LoadQuestions(page_nb)
     {
         var iconurl = "img/vote_pending.svg"
         if(Questions[i].HasAnswered) iconurl = "img/vote_done.svg";
-        //TODO: if there's less than a day left, show in hours, then in minutes.
-        var datestring = ((Questions[i].expiredate.getTime() - new Date().getTime()) / 86400000).toFixed() + " days left"; 
+        var timeleft = (Questions[i].expiredate.getTime() - new Date().getTime());
+        var datestring = ( timeleft / 86400000).toFixed() + " days left";
+        if(timeleft<86400000) datestring = (timeleft / 3600000).toFixed() + " hours left";
+        else if(timeleft<7200000) datestring = (timeleft / 60000) + " minutes left";
+        else if(timeleft<120000) datestring = (timeleft / 1000) + " seconds left";
         html = html + ListItem_html.replace("$TITLE",Questions[i].title).replace("$VOTEICON",iconurl).replace("$ID", Questions[i].id).replace("$TIMELEFT",datestring);
     }
     document.getElementsByClassName("selectionarea")[0].innerHTML = html;
@@ -52,6 +56,7 @@ function LoadQuestions(page_nb)
                document.getElementById("qsubtitle").innerText = Questions[i].subtitle;
                if(Questions[i].redditurl == undefined){ $("#redditbutton").css("visibility","hidden"); }
                else { $("#redditbutton").css("visibility","visible");}
+               document.getElementById("redditbutton").setAttribute("href",Questions[i].redditurl);
                var tbody = document.getElementById("vo_tbody");
                $("#voteoptions > tbody").html("");
                var row = tbody.insertRow();
@@ -64,6 +69,7 @@ function LoadQuestions(page_nb)
                    $("#voteoptions").css("border-spacing", "4px")
                    $("#tablewrapper").css("margin", "24px -4px")
                }
+               Questions[i].options = shuffle(Questions[i].options);
                for (j = 0; j < Questions[i].options.length; j++) {
                    if(j % 2 == 0 && j>1 || listMode) row = tbody.insertRow();
                    var cell = row.insertCell();
@@ -87,4 +93,15 @@ function LoadQuestions(page_nb)
        );
    //TODO: automatically select the most relevant question (the one with the least time left that hasn't yet been answered)
    //TODO: Fire event on .VoteButton click.
+}
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
 }
