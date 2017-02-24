@@ -176,7 +176,7 @@ h3 {
     max-height: 252px;
     overflow-y: auto;
 }
-td.VoteButton {
+td.Ballot {
     font-family: Vollkorn, serif;
     font-weight: bold;
     text-align: center;
@@ -190,8 +190,8 @@ td.VoteButton {
    /* border: 24px solid #001f38;*/
     transition: background 100ms, color 200ms;
 }
-td.VoteButton:hover { background: #e1bd57; color: #9f310e; }
-td.VoteButton:active { background: #C73E12; color: #DEB645; }
+td.Ballot:hover { background: #e1bd57; color: #9f310e; }
+td.Ballot:active { background: #C73E12; color: #DEB645; }
 a{
     font-family: Vollkorn, serif;
     font-size: 1em;

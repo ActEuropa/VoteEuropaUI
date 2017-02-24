@@ -73,7 +73,7 @@ function LoadQuestions(page_nb)
                for (j = 0; j < Questions[i].options.length; j++) {
                    if(j % 2 == 0 && j>1 || listMode) row = tbody.insertRow();
                    var cell = row.insertCell();
-                   cell.setAttribute("class", "VoteButton");
+                   cell.setAttribute("class", "Ballot");
                    cell.innerText = Questions[i].options[j];
                    if(listMode) {
                        cell.style.display = "inline";
@@ -92,7 +92,7 @@ function LoadQuestions(page_nb)
        function() { if($(this).css("background-color") != "rgb(0, 31, 56)") $(this).css("background", "#00294b") }
        );
    //TODO: automatically select the most relevant question (the one with the least time left that hasn't yet been answered)
-   //TODO: Fire event on .VoteButton click.
+   //TODO: Fire event on .Ballot click.
 }
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
