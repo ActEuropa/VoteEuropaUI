@@ -100,9 +100,11 @@ input[type=submit]:focus { background: #e4c46a; color: #8b2b0c; border-color: #0
     width: 40%;
     vertical-align:top;
     order: 1;
+    overflow: hidden;
 }
 #selectionarea{
     position:relative;
+
 }
 #votingarea {
     box-sizing:border-box;
@@ -206,6 +208,7 @@ a{
 }
 a:hover{ opacity:0.6; }
 a:active{ opacity:0.8; }
+a:focus { outline: 0; }
 #logoutbutton {
     float: right;
     margin-top: 14px;
@@ -223,7 +226,6 @@ a:active{ opacity:0.8; }
     opacity:0;
     visibility: hidden;
 }
-
 /* RESPONSIVE CODE */
 @media screen and (max-width: 640px) {
   .selectionarea { width:100%; }

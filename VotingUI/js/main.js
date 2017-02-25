@@ -92,12 +92,30 @@ function LoadQuestions(page_nb)
    });
    $("#archivedbutton").click(function(){
        $("#activebutton").css("visibility","visible");
-       $("#selectionarea").animate({left: "200px", opacity: "0"},{ duration: 200, queue: false});
-       $("#archivedbutton").animate({marginLeft: "164px", opacity: "0"},{ duration: 300, queue: false });
-       $("#activebutton").animate({marginRight: "0px", opacity: "1"},{ duration: 200, queue: false });
-   }
-   )
-   //TODO: fix bug where if you click on an option and move the mouse away faster than the animation, the second function gets fired.
+       $("#archivedbutton").animate({marginLeft: "140px"},{ duration: 300, queue: false });
+       $("#activebutton").animate({marginRight: "0px"},{ duration: 300, queue: false })
+       $("#archivedbutton").animate({opacity: "0"},{ duration: 200, queue: false, easing:"linear" });
+       $("#activebutton").animate({opacity: "1"},{ duration: 200, queue: false, easing:"linear" })
+       $("#selectionarea").animate({left: "300px", opacity: "0"},{ duration: 300, queue: false,done: function(){
+            //TODO: load old posts from API
+            $("#selectionarea").animate({left: "-200px"},{ duration:0, queue: false });
+            $("#selectionarea").animate({left: "0px", opacity: "1"},{ duration: 300, queue: false });
+            $("#archivedbutton").css("visibility","collapse");
+       }});
+   });
+   $("#activebutton").click(function(){
+       $("#archivedbutton").css("visibility","visible");
+       $("#archivedbutton").animate({marginLeft: "0px"},{ duration: 300, queue: false });
+       $("#activebutton").animate({marginRight: "170px"},{ duration: 300, queue: false })
+       $("#archivedbutton").animate({opacity: "0.34"},{ duration: 200, queue: false, easing:"linear" });
+       $("#activebutton").animate({opacity: "1"},{ duration: 200, queue: false, easing:"linear" })
+       $("#selectionarea").animate({left: "-200px", opacity: "0"},{ duration: 300, queue: false,done: function(){
+            //TODO: load old posts from API
+            $("#selectionarea").animate({left: "200px"},{ duration:0, queue: false });
+            $("#selectionarea").animate({left: "0px", opacity: "1"},{ duration: 300, queue: false });
+            $("#activebutton").css("visibility","collapse");
+       }});
+   });
    $('table.listitem').hover(
        function() { if($(this).css("background-color") != "rgb(0, 31, 56)") $(this).css("background", "#002443"); },
        function() { if($(this).css("background-color") != "rgb(0, 31, 56)") $(this).css("background", "#00294b"); }
