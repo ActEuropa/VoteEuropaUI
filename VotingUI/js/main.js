@@ -26,6 +26,10 @@ var Questions = [qe1,qe2,qe3,qe4, qe5];
 function LoadQuestions(page_nb)
 {
     //TODO: load questions from the API instead of using test ones.
+
+    //Wait 500 milliseconds to simulate AJAX response delay:
+    var start = new Date().getTime(); for (var i = 0; i < 1e7; i++) {if ((new Date().getTime() - start) > 500){break;}}
+
     var ListItem_html = "<table class=\"listitem\" id=\"$ID\"><tbody><tr><td class=\"listitem_imgwrapper\"><img class=\"voteIcon\" src=\"$VOTEICON\"/></td><td><h4>$TITLE</h4><h5>$TIMELEFT</h5></td></tr></tbody></table>"
     var html = "";
     for (i = 0; i < Questions.length; i++) 
@@ -39,9 +43,9 @@ function LoadQuestions(page_nb)
         else if(timeleft<120000) datestring = (timeleft / 1000) + " seconds left";
         html = html + ListItem_html.replace("$TITLE",Questions[i].title).replace("$VOTEICON",iconurl).replace("$ID", Questions[i].id).replace("$TIMELEFT",datestring);
     }
-    document.getElementsByClassName("selectionarea")[0].innerHTML = html;
-
-    $('table.listitem').click(function() {
+  document.getElementById("selectionarea").innerHTML = html;
+  $("#spinner").hide();
+  $('table.listitem').click(function() {
        var id = $(this).attr('id');
        $(this).siblings().css("background", "#00294b");
        $(this).siblings().css("cursor","pointer");
@@ -86,10 +90,17 @@ function LoadQuestions(page_nb)
            }
        }
    });
+   $("#archivedbutton").click(function(){
+       $("#activebutton").css("visibility","visible");
+       $("#selectionarea").animate({left: "200px", opacity: "0"},{ duration: 200, queue: false});
+       $("#archivedbutton").animate({marginLeft: "164px", opacity: "0"},{ duration: 300, queue: false });
+       $("#activebutton").animate({marginRight: "0px", opacity: "1"},{ duration: 200, queue: false });
+   }
+   )
    //TODO: fix bug where if you click on an option and move the mouse away faster than the animation, the second function gets fired.
    $('table.listitem').hover(
-       function() { if($(this).css("background-color") != "rgb(0, 31, 56)") $(this).css("background", "#002443") },
-       function() { if($(this).css("background-color") != "rgb(0, 31, 56)") $(this).css("background", "#00294b") }
+       function() { if($(this).css("background-color") != "rgb(0, 31, 56)") $(this).css("background", "#002443"); },
+       function() { if($(this).css("background-color") != "rgb(0, 31, 56)") $(this).css("background", "#00294b"); }
        );
    //TODO: automatically select the most relevant question (the one with the least time left that hasn't yet been answered)
    //TODO: Fire event on .Ballot click.

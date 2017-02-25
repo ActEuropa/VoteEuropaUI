@@ -95,13 +95,16 @@ input[type=submit]:focus { background: #e4c46a; color: #8b2b0c; border-color: #0
 }
 .view-row { display: table-row; }
 .view-row > div { display: table-cell; }
-.selectionarea {
+#selectionareawrapper {
     background: #00294b;
     width: 40%;
     vertical-align:top;
     order: 1;
 }
-.votingarea {
+#selectionarea{
+    position:relative;
+}
+#votingarea {
     box-sizing:border-box;
     float:right;
     background: #001f38;
@@ -109,6 +112,7 @@ input[type=submit]:focus { background: #e4c46a; color: #8b2b0c; border-color: #0
     margin:auto;
     padding:38px;
     order: 0;
+    z-index:2;
 }
 
 img.voteIcon
@@ -186,8 +190,7 @@ td.Ballot {
     cursor: pointer;
     background: #DEB645;
     color: #C73E12;
-   padding:-38px;
-   /* border: 24px solid #001f38;*/
+    padding:-38px;
     transition: background 100ms, color 200ms;
 }
 td.Ballot:hover { background: #e1bd57; color: #9f310e; }
@@ -211,8 +214,15 @@ a:active{ opacity:0.8; }
 #archivedbutton {
     float:left;
     margin-top:4px;
+    position:fixed;
 }
-
+#activebutton {
+    float:right;
+    margin-top:4px;
+    margin-right:100px;
+    opacity:0;
+    visibility: hidden;
+}
 
 /* RESPONSIVE CODE */
 @media screen and (max-width: 640px) {

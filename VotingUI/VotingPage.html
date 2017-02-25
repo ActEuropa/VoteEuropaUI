@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/cssloader.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Vollkorn" rel="stylesheet"> 
 </head>
@@ -20,14 +21,18 @@
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <h5 id="version_nb">v0.1.0.0</h5>
+    <h5 id="version_nb">Alpha v.0.1.0.0</h5>
     <div class="logoParent"><img class="logo" src="img/Primary_Logo.svg" /></div>
     <h1><span style="color: #C73E12;">VOTE</span>EUROPA</h1>
     
     <div class="view-table">
         <div class="view-row">
-            <div class="selectionarea"></div>
-            <div class="votingarea">
+            <div id="selectionareawrapper">
+                <div id="selectionarea">
+                </div>
+                <div class="cssload-loader" id="spinner"></div>
+            </div>
+            <div id="votingarea">
                 <h2 id="qtitle">Question title</h2>
                 <h3 id="qsubtitle" >Question subtitle</h3>
                 <div id="tablewrapper">
@@ -43,9 +48,9 @@
                 <a href="#logout" id="logoutbutton">Log out from [user]</a>
             </div>
         </div>
-        <a href="#archived" id="archivedbutton">&larr; View archived posts</a>
+        <a href="#archived" id="archivedbutton">&larr; View archived votes</a>
+        <a href="#active" id="activebutton">View active votes &rarr;</a>
     </div>
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
     <script src="js/plugins.js"></script>
