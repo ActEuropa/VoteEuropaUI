@@ -10,6 +10,7 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
+/* GLOBAL */
 html,
 button,
 input,
@@ -26,7 +27,9 @@ textarea {
 }
 body {
     background-color: #002F55;
-    position:relative;
+    position:absolute;
+    top:0;bottom:0;left:0;bottom:0;
+    min-width:100%;
 }
 
 html {
@@ -55,6 +58,20 @@ img.logo {
 .center{
     margin:auto;
 }
+a{
+    font-family: Vollkorn, serif;
+    font-size: 1em;
+    text-decoration: none;
+    vertical-align: text-bottom;
+    color: white;
+    opacity: 0.34;
+    transition: opacity 200ms;
+}
+a:hover{ opacity:0.6; }
+a:active{ opacity:0.8; }
+a:focus { outline: 0; }
+
+/* LOGIN+REGISTER PAGE */
 form{
     max-width:256px;
     margin: auto;
@@ -84,7 +101,12 @@ input[type=submit] {
 }
 input[type=submit]:hover { background: #e1bd57; color: #9f310e;}
 input[type=submit]:focus { background: #e4c46a; color: #8b2b0c; border-color: #002f55;}
-
+#registerbutton {
+    font-size:0.75em;
+    font-family: Vollkorn, serif;
+    margin: 2px 0px 8px;
+    float:right;
+}
 
 /*VOTING PAGE:*/
 .view-table {
@@ -116,7 +138,6 @@ input[type=submit]:focus { background: #e4c46a; color: #8b2b0c; border-color: #0
     order: 0;
     z-index:2;
 }
-
 img.voteIcon
 {
     width:48px;
@@ -153,7 +174,6 @@ h5 {
     opacity:0.5;
     margin:0px;
 }
-
 h2 {
     font-family: Vollkorn, serif;
     font-weight: normal;
@@ -162,7 +182,6 @@ h2 {
     color: white;
     margin:0;
 }
-
 h3 {
     font-family: Vollkorn, serif;
     font-weight:normal;
@@ -175,14 +194,15 @@ h3 {
     table-layout:fixed;
     border-collapse:separate;
     border-spacing:24px;
-    width: 100%;
+    width:100%;
+    float:left;
 }
 #tablewrapper {
     margin:0 -24px;
     max-height: 252px;
     overflow-y: auto;
 }
-td.Ballot {
+.Ballot {
     font-family: Vollkorn, serif;
     font-weight: bold;
     text-align: center;
@@ -194,21 +214,24 @@ td.Ballot {
     color: #C73E12;
     padding:-38px;
     transition: background 100ms, color 200ms;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
 }
-td.Ballot:hover { background: #e1bd57; color: #9f310e; }
-td.Ballot:active { background: #C73E12; color: #DEB645; }
-a{
+.Ballot:hover { background: #e1bd57; color: #9f310e; }
+.Ballot:active { background: #C73E12; color: #DEB645; }
+.Ballot_nb {
     font-family: Vollkorn, serif;
-    font-size: 1em;
-    text-decoration: none;
-    vertical-align: text-bottom;
+    width:32px;
+    padding: 4px 0px 0px 4px;
+    height: 1.69em;
+    display: inline-block;
+    vertical-align: middle;
     color: white;
-    opacity: 0.34;
-    transition: opacity 200ms;
+    opacity:0.2;
 }
-a:hover{ opacity:0.6; }
-a:active{ opacity:0.8; }
-a:focus { outline: 0; }
+.sortitem { margin: 4px 0px 0px 4px }
+
 #logoutbutton {
     float: right;
     margin-top: 14px;
@@ -222,16 +245,38 @@ a:focus { outline: 0; }
 #activebutton {
     float:right;
     margin-top:4px;
-    margin-right:100px;
+    margin-right:140px;
     opacity:0;
     visibility: hidden;
 }
+#stvwarn { margin-top:12px; opacity:1;}
+#stvsubmit { margin-bottom:24px; float:right;}
+
+/* OVERLAY */
+#overlay {
+    background: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity:0.5;
+    margin:auto;
+    visibility:collapse;
+}
+#overlaybody {
+    position:relative;
+    display:inline-block;
+    width:24%;
+    padding-bottom:31%;
+}
 /* RESPONSIVE CODE */
 @media screen and (max-width: 640px) {
-  .selectionarea { width:100%; }
+  #selectionareawrapper { width:100%; }
   .view-row { display: flex; flex-flow:column;}
   .view-row > div { display: inline; }
   #logoutbutton { float:left; margin-left: 0px; }
+  #tablewrapper { margin:0 -24px; max-height: none;}
 }
 
 

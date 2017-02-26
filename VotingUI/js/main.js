@@ -1,4 +1,4 @@
-function QuestionElement(id, title, subtitle, options, HasAnswered, expiredate, redditurl, randomize) {
+function QuestionElement(id, title, subtitle, options, HasAnswered, expiredate, redditurl, randomize, stv) {
     this.id = id;
     this.title = title;
     this.subtitle = subtitle;
@@ -7,6 +7,7 @@ function QuestionElement(id, title, subtitle, options, HasAnswered, expiredate, 
     this.expiredate = expiredate;
     this.redditurl = redditurl;
     this.randomize = randomize;
+    this.stv = stv;
 }
 
 function VotingPage_Loaded()
@@ -15,11 +16,11 @@ function VotingPage_Loaded()
 }
 
 //Test questions:
-var qe1 = new QuestionElement(1, "How often should we have discord discussions?", "So, how often?", ["Weekly","Bi-weekly","Monthly","Never"], true, new Date(1490313600000),"reddit.com/r/test1",true)
-var qe2 = new QuestionElement(2, "Is ActEuropa going somewhere?", "Is it?", ["Yes","No","Maybe","Wtf"], true, new Date(1488326400000),true)
-var qe3 = new QuestionElement(3, "Who should we support in the French elections?", "There's the choice between various people, the main candidates being:", ["Emmanuel Macron","François Fillon","Benoît Hamon","Jean-Luc Mélenchon","Yannick Jadot","Marine Le Pen","Sylvain Duriff"], true, new Date(1491177600000), "reddit.com/r/test1",true)
-var qe4 = new QuestionElement(4, "Should all muslims be banned?", "🎵 I can show you the world 🎶 (Except the USA)", ["Yes","No"], false, new Date(1506556800000), "reddit.com/r/test1",true)
-var qe5 = new QuestionElement(5, "Which English food is the worst?", "This is a difficult question.", ["Marmite","Bangers and mash","Cobbler","Black pudding","Devilled kidneys","Jellied eels","Baked beans","Jelly","Pound cake","Spotted dick","Semolina pudding","Liver and onions","All of it"], false, new Date(1503556800000), "reddit.com/r/test1",true)
+var qe1 = new QuestionElement(1, "How often should we have discord discussions?", "So, how often?", ["Weekly","Bi-weekly","Monthly","Never"], true, new Date(1490313600000),"reddit.com/r/test1",true,false)
+var qe2 = new QuestionElement(2, "Is ActEuropa going somewhere?", "Is it?", ["Yes","No","Maybe","Wtf"], true, new Date(1488326400000),true, false, true)
+var qe3 = new QuestionElement(3, "Who should we support in the French elections?", "There's the choice between various people, the main candidates being:", ["Emmanuel Macron","François Fillon","Benoît Hamon","Jean-Luc Mélenchon","Yannick Jadot","Marine Le Pen","Sylvain Duriff"], true, new Date(1491177600000), "reddit.com/r/test1",true,true)
+var qe4 = new QuestionElement(4, "Should all muslims be banned?", "🎵 I can show you the world 🎶 (Except the USA)", ["Yes","No"], false, new Date(1506556800000), "reddit.com/r/test1",true, false)
+var qe5 = new QuestionElement(5, "Which English food is the worst?", "This is a difficult question.", ["Marmite","Bangers and mash","Cobbler","Black pudding","Devilled kidneys","Jellied eels","Baked beans","Jelly","Pound cake","Spotted dick","Semolina pudding","Liver and onions","All of it"], false, new Date(1503556800000), "reddit.com/r/test1",true,false)
 
 var Questions = [qe1,qe2,qe3,qe4, qe5];
 
@@ -28,8 +29,7 @@ function LoadQuestions(page_nb)
     //TODO: load questions from the API instead of using test ones.
 
     //Wait 500 milliseconds to simulate AJAX response delay:
-    var start = new Date().getTime(); for (var i = 0; i < 1e7; i++) {if ((new Date().getTime() - start) > 500){break;}}
-
+    await(500);
     var ListItem_html = "<table class=\"listitem\" id=\"$ID\"><tbody><tr><td class=\"listitem_imgwrapper\"><img class=\"voteIcon\" src=\"$VOTEICON\"/></td><td><h4>$TITLE</h4><h5>$TIMELEFT</h5></td></tr></tbody></table>"
     var html = "";
     for (i = 0; i < Questions.length; i++) 
@@ -51,13 +51,14 @@ function LoadQuestions(page_nb)
        $(this).siblings().css("cursor","pointer");
        $(this).css("background", "#001f38");
        $(this).css("cursor","default");
-
        for (i = 0; i < Questions.length; i++) 
        {
            if(Questions[i].id == id)
            {
                document.getElementById("qtitle").innerText = Questions[i].title;
                document.getElementById("qsubtitle").innerText = Questions[i].subtitle;
+               if(Questions[i].stv == true){$("#stvwarn").show();$("#stvsubmit").show();}
+               else {$("#stvwarn").hide();$("#stvsubmit").hide();}
                if(Questions[i].redditurl == undefined){ $("#redditbutton").css("visibility","hidden"); }
                else { $("#redditbutton").css("visibility","visible");}
                document.getElementById("redditbutton").setAttribute("href",Questions[i].redditurl);
@@ -65,17 +66,40 @@ function LoadQuestions(page_nb)
                $("#voteoptions > tbody").html("");
                var row = tbody.insertRow();
                var listMode = false;
-               $("#voteoptions").css("border-spacing", "24px")
-               $("#tablewrapper").css("margin", "0px -24px")
-               if(Questions[i].options.length > 4) 
+               if(Questions[i].stv == true)
                {
-                   listMode = true;
-                   $("#voteoptions").css("border-spacing", "4px")
-                   $("#tablewrapper").css("margin", "24px -4px")
+                   $("#voteoptions").css("width", "32px");
+                   $("#voteoptions").css("border-spacing", "4px");
+                   $("#tablewrapper").css("margin", "0px -4px 6px 0px");
+               }
+               else 
+               {
+                   $("#voteoptions").css("width", "100%");
+                   if(Questions[i].options.length > 4){
+                       listMode = true;
+                       $("#voteoptions").css("width", "100%");
+                       $("#voteoptions").css("border-spacing", "4px");
+                       $("#tablewrapper").css("margin", "24px -4px");
+                   }
+                   else{
+                       $("#voteoptions").css("border-spacing", "24px");
+                       $("#tablewrapper").css("margin", "0px -24px");
+                   }
                }
                Questions[i].options = shuffle(Questions[i].options);
+               var mdiv = document.getElementById("stvlist");
+               mdiv.innerHTML = "";
                for (j = 0; j < Questions[i].options.length; j++) {
+
                    if(j % 2 == 0 && j>1 || listMode) row = tbody.insertRow();
+                   if(Questions[i].stv == true){
+                       var nb = row.insertCell();
+                       nb.setAttribute("class","Ballot_nb");
+                       nb.innerText = j.toString();
+                       mdiv.innerHTML = mdiv.innerHTML + "<div class=\"sortitem\"><span class=\"Ballot\" unselectable=\"on\" style=\"padding: 0px 4px;\">" + Questions[i].options[j]; + "</span></div>"
+                   }
+                   else
+                   {
                    var cell = row.insertCell();
                    cell.setAttribute("class", "Ballot");
                    cell.innerText = Questions[i].options[j];
@@ -86,6 +110,10 @@ function LoadQuestions(page_nb)
                    else if(Questions[i].options.length == 2){
                        cell.style.height = "202px";
                    }
+                   }
+               }
+               if(Questions[i].stv == true){
+                   $("stvlist").vSort();
                }
            }
        }
@@ -94,8 +122,8 @@ function LoadQuestions(page_nb)
        $("#activebutton").css("visibility","visible");
        $("#archivedbutton").animate({marginLeft: "140px"},{ duration: 300, queue: false });
        $("#activebutton").animate({marginRight: "0px"},{ duration: 300, queue: false })
-       $("#archivedbutton").animate({opacity: "0"},{ duration: 200, queue: false, easing:"linear" });
-       $("#activebutton").animate({opacity: "1"},{ duration: 200, queue: false, easing:"linear" })
+       $("#archivedbutton").animate({opacity: "0"},{ duration: 200, queue: false });
+       $("#activebutton").animate({opacity: "1"},{ duration: 200, queue: false })
        $("#selectionarea").animate({left: "300px", opacity: "0"},{ duration: 300, queue: false,done: function(){
             //TODO: load old posts from API
             $("#selectionarea").animate({left: "-200px"},{ duration:0, queue: false });
@@ -107,8 +135,8 @@ function LoadQuestions(page_nb)
        $("#archivedbutton").css("visibility","visible");
        $("#archivedbutton").animate({marginLeft: "0px"},{ duration: 300, queue: false });
        $("#activebutton").animate({marginRight: "170px"},{ duration: 300, queue: false })
-       $("#archivedbutton").animate({opacity: "1"},{ duration: 200, queue: false, easing:"linear" });
-       $("#activebutton").animate({opacity: "1"},{ duration: 200, queue: false, easing:"linear" })
+       $("#archivedbutton").animate({opacity: "1"},{ duration: 200, queue: false });
+       $("#activebutton").animate({opacity: "0"},{ duration: 200, queue: false})
        $("#selectionarea").animate({left: "-200px", opacity: "0"},{ duration: 300, queue: false,done: function(){
             //TODO: load old posts from API
             $("#selectionarea").animate({left: "200px"},{ duration:0, queue: false });
@@ -134,3 +162,5 @@ function shuffle(array) {
   }
   return array;
 }
+function await(time)
+{ var start = new Date().getTime(); for (var i = 0; i < 1e7; i++) {if ((new Date().getTime() - start) > time){break;}} }

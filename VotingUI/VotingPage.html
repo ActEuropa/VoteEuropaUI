@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js">
 <!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,8 +16,9 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/cssloader.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Vollkorn" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Vollkorn" rel="stylesheet">
 </head>
+
 <body onload="VotingPage_Loaded()">
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -24,7 +26,6 @@
     <h5 id="version_nb">Alpha v.0.1.0.0</h5>
     <div class="logoParent"><img class="logo" src="img/Primary_Logo.svg" /></div>
     <h1><span style="color: #C73E12;">VOTE</span>EUROPA</h1>
-    
     <div class="view-table">
         <div class="view-row">
             <div id="selectionareawrapper">
@@ -34,25 +35,38 @@
             </div>
             <div id="votingarea">
                 <h2 id="qtitle">Question title</h2>
-                <h3 id="qsubtitle" >Question subtitle</h3>
-                <div id="tablewrapper">
-                    <table id="voteoptions">
-                        <tbody id="vo_tbody">
-                        </tbody>
-                    </table>
-                </div>
-                <a id="redditbutton" href="http://reddit.com/r/acteuropa">
-                    <img src="img/snoo.png" style="vertical-align:-50%;padding-right:6px" />
-                    DEBATE ON REDDIT
-                </a>
-                <a href="#logout" id="logoutbutton">Log out from [user]</a>
+                <h3 id="qsubtitle">Question subtitle</h3>
+                <h5 id="stvwarn"><span style="color:#deb645;">Please drag the ballots in order of preference.</span></h5>
+                   <div id="tablewrapper">
+                         <table id="voteoptions"><tbody id="vo_tbody"></tbody></table>
+                         <div id="stvlist" style="margin-top:4px;float:left;"></div>
+                    </div>
+                    <input id="stvsubmit" type="submit" value="VALIDATE" />
+                    <style>
+
+                    </style>
+                    <!-- sort container -->
+
+                    
+                    <a id="redditbutton" href="http://reddit.com/r/acteuropa">
+                        <img src="img/snoo.png" style="vertical-align:-50%;padding-right:6px" /> DEBATE ON REDDIT
+                    </a>
+
+                    <a href="#logout" id="logoutbutton">Log out from [user]</a>
             </div>
         </div>
         <a href="#archived" id="archivedbutton">&larr; View archived votes</a>
         <a href="#active" id="activebutton">View active votes &rarr;</a>
     </div>
+    <div id="overlay">
+        <div>
+            <h2>Are you sure?</h2>
+        </div>
+    </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+    </script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 </body>
