@@ -120,27 +120,27 @@ function LoadQuestions(page_nb)
    });
    $("#archivedbutton").click(function(){
        $("#activebutton").css("visibility","visible");
-       $("#archivedbutton").animate({marginLeft: "140px"},{ duration: 300, queue: false });
-       $("#activebutton").animate({marginRight: "0px"},{ duration: 300, queue: false })
+       $("#archivedbutton").animate({marginLeft: "140px"},{ duration: 600, queue: false, easing: "easeInOutExpo"});
+       $("#activebutton").animate({marginRight: "0px"},{ duration: 600, queue: false, easing: "easeInOutExpo"})
        $("#archivedbutton").animate({opacity: "0"},{ duration: 200, queue: false });
        $("#activebutton").animate({opacity: "1"},{ duration: 200, queue: false })
-       $("#selectionarea").animate({left: "300px", opacity: "0"},{ duration: 300, queue: false,done: function(){
+       $("#selectionarea").animate({left: "300px", opacity: "0"},{ duration: 300, queue: false, easing: "easeInExpo", done: function(){
             //TODO: load old posts from API
-            $("#selectionarea").animate({left: "-200px"},{ duration:0, queue: false });
-            $("#selectionarea").animate({left: "0px", opacity: "1"},{ duration: 300, queue: false });
+            $("#selectionarea").animate({left: "-200px"},{ duration:0, queue: false});
+            $("#selectionarea").animate({left: "0px", opacity: "1"},{ duration: 300, queue: false, easing: "easeOutExpo" });
             $("#archivedbutton").css("visibility","collapse");
        }});
    });
    $("#activebutton").click(function(){
        $("#archivedbutton").css("visibility","visible");
-       $("#archivedbutton").animate({marginLeft: "0px"},{ duration: 300, queue: false });
-       $("#activebutton").animate({marginRight: "170px"},{ duration: 300, queue: false })
+       $("#archivedbutton").animate({marginLeft: "0px"},{ duration: 600, queue: false, easing: "easeInOutExpo" });
+       $("#activebutton").animate({marginRight: "170px"},{ duration: 600, queue: false, easing: "easeInOutExpo" })
        $("#archivedbutton").animate({opacity: "1"},{ duration: 200, queue: false });
        $("#activebutton").animate({opacity: "0"},{ duration: 200, queue: false})
-       $("#selectionarea").animate({left: "-200px", opacity: "0"},{ duration: 300, queue: false,done: function(){
+       $("#selectionarea").animate({left: "-200px", opacity: "0"},{ duration: 300, queue: false, easing: "easeInExpo", done: function(){
             //TODO: load old posts from API
-            $("#selectionarea").animate({left: "200px"},{ duration:0, queue: false });
-            $("#selectionarea").animate({left: "0px", opacity: "1"},{ duration: 300, queue: false });
+            $("#selectionarea").animate({left: "200px"},{ duration:0, queue: false});
+            $("#selectionarea").animate({left: "0px", opacity: "1"},{ duration: 300, queue: false, easing: "easeOutExpo" });
             $("#activebutton").css("visibility","collapse");
        }});
    });
