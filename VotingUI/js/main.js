@@ -23,6 +23,7 @@ var qe4 = new QuestionElement(4, "Should all muslims be banned?", "🎵 I can sh
 var qe5 = new QuestionElement(5, "Which English food is the worst?", "This is a difficult question.", ["Marmite","Bangers and mash","Cobbler","Black pudding","Devilled kidneys","Jellied eels","Baked beans","Jelly","Pound cake","Spotted dick","Semolina pudding","Liver and onions","All of it"], false, new Date(1503556800000), "reddit.com/r/test1",true,false)
 
 var Questions = [qe1,qe2,qe3,qe4, qe5];
+var isSTV = false;
 
 function LoadQuestions(page_nb)
 {
@@ -68,12 +69,14 @@ function LoadQuestions(page_nb)
                var listMode = false;
                if(Questions[i].stv == true)
                {
+                   isSTV = true;
                    $("#voteoptions").css("width", "32px");
                    $("#voteoptions").css("border-spacing", "4px");
                    $("#tablewrapper").css("margin", "0px -4px 6px 0px");
                }
                else 
                {
+                   isSTV = false;
                    $("#voteoptions").css("width", "100%");
                    if(Questions[i].options.length > 4){
                        listMode = true;
@@ -92,11 +95,11 @@ function LoadQuestions(page_nb)
                for (j = 0; j < Questions[i].options.length; j++) {
 
                    if(j % 2 == 0 && j>1 || listMode) row = tbody.insertRow();
-                   if(Questions[i].stv == true){
+                   if( isSTV  == true){
                        var nb = row.insertCell();
                        nb.setAttribute("class","Ballot_nb");
                        nb.innerText = j.toString();
-                       mdiv.innerHTML = mdiv.innerHTML + "<div class=\"sortitem\"><span class=\"Ballot\" unselectable=\"on\" style=\"padding: 0px 4px;\">" + Questions[i].options[j]; + "</span></div>"
+                       mdiv.innerHTML = mdiv.innerHTML + "<div class=\"sortitem\"><span class=\"Ballot stv\" unselectable=\"on\" style=\"padding: 0px 4px;\">" + Questions[i].options[j]; + "</span></div>"
                    }
                    else
                    {
@@ -112,7 +115,7 @@ function LoadQuestions(page_nb)
                    }
                    }
                }
-               if(Questions[i].stv == true){
+               if(isSTV == true){
                    $("stvlist").vSort();
                }
            }
@@ -143,6 +146,15 @@ function LoadQuestions(page_nb)
             $("#selectionarea").animate({left: "0px", opacity: "1"},{ duration: 300, queue: false, easing: "easeOutExpo" });
             $("#activebutton").css("visibility","collapse");
        }});
+   });
+   $("#confirmclose").click(function(){
+       $("#overlay").hide(300);
+   })
+   $(document).on('click', '.Ballot', function () {
+       if(isSTV == true) return;
+      document.getElementById("confirmbtn").innerText = "Yes, I want to vote for \"" + this.innerText + "\"";
+      $("#overlay").css("visibility", "visible");
+      $("#overlay").show(300);
    });
    $('table.listitem').hover(
        function() { if($(this).css("background-color") != "rgb(0, 31, 56)") $(this).css("background", "#002443"); },

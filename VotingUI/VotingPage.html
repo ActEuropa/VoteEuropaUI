@@ -29,8 +29,7 @@
     <div class="view-table">
         <div class="view-row">
             <div id="selectionareawrapper">
-                <div id="selectionarea">
-                </div>
+                <div id="selectionarea"></div>
                 <div class="cssload-loader" id="spinner"></div>
             </div>
             <div id="votingarea">
@@ -59,8 +58,12 @@
         <a href="#active" id="activebutton">View active votes &rarr;</a>
     </div>
     <div id="overlay">
-        <div>
-            <h2>Are you sure?</h2>
+        <div id="overlaybg"/>
+        <div id="overlaybody">
+            <a id="confirmclose">❌</a>
+            <h1 style="color:#C73E12;font-size:10vmin;">Are you sure?</h1>
+            <h3 style="color:#deb645;margin-bottom:24px;">You can't change your mind later...</h3>
+            <a href="#send" id="confirmbtn">YES, I WANT TO VOTE FOR "[choice]"</a>
         </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
