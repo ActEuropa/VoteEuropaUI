@@ -21,8 +21,9 @@ var qe2 = new QuestionElement(2, "Is ActEuropa going somewhere?", "Is it?", ["Ye
 var qe3 = new QuestionElement(3, "Who should we support in the French elections?", "There's the choice between various people, the main candidates being:", ["Emmanuel Macron","François Fillon","Benoît Hamon","Jean-Luc Mélenchon","Yannick Jadot","Marine Le Pen","Sylvain Duriff"], true, new Date(1491177600000), "reddit.com/r/test1",true,true)
 var qe4 = new QuestionElement(4, "Should all muslims be banned?", "🎵 I can show you the world 🎶 (Except the USA)", ["Yes","No"], false, new Date(1506556800000), "reddit.com/r/test1",true, false)
 var qe5 = new QuestionElement(5, "Which English food is the worst?", "This is a difficult question.", ["Marmite","Bangers and mash","Cobbler","Black pudding","Devilled kidneys","Jellied eels","Baked beans","Jelly","Pound cake","Spotted dick","Semolina pudding","Liver and onions","All of it"], false, new Date(1503556800000), "reddit.com/r/test1",true,false)
+var qe6 = new QuestionElement(6, "Which mods should be elected?", "This is an STV Vote that will select the top 4 moderators.", ["anortef","dfractalh","mustwinfullGaming","shootmii","thienge","Tiis"], false, new Date(1488326400000), "https://www.reddit.com/r/acteuropa/comments/5w6xud/moderator_elections_26022017_voting_thread/", true, true)
 
-var Questions = [qe1,qe2,qe3,qe4, qe5];
+var Questions = [qe1,qe2,qe3,qe4, qe5, qe6];
 var isSTV = false;
 
 function LoadQuestions(page_nb)

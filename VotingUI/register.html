@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js">
 <!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,30 +15,47 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Vollkorn" rel="stylesheet"> 
-    <link id="favicon" href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Vollkorn" rel="stylesheet">
+    <link id="favicon" href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
+
 <body>
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <div class="logoParent">
-        <img class="logo" src="img/Primary_Logo.svg"/>
+        <img class="logo" src="img/Primary_Logo.svg" />
     </div>
     <h1><span style="color: #C73E12;">VOTE</span><span>EUROPA</span></h1>
-    <div class="center">
-        <form action="VotingPage.html">
-            <input type="text" placeholder="Email" />
-            <input type="password" placeholder="Password"/>
-            <input type="password" placeholder="Confirm password"/>
-            <input type="submit" value="REGISTER"/>
-        </form>
-    </div>
-    
+    <h5 id="RegisterWarning">Please fill in the form seriously: This isn't signing up for a newsletter, it's signing up for the future of our continent</h5>
+    <ul>
+        <div>
+        <input type="text" placeholder="First name*"/>
+        <input type="text" placeholder="Last name*"/>
+        <input type="text" placeholder="Street address*"/>
+        <input type="text" placeholder="Address line 2"/>
+        <input type="text" placeholder="City*"/>
+        <input type="text" placeholder="Postal code*"/>
+        <input type="text" placeholder="Region*"/>
+        <input type="text" placeholder="Country*"/>
+        </div>
+        <div>
+        <input type="text" placeholder="Username*"/>
+        <input type="text" placeholder="Email*"/>
+        <input type="text" placeholder="Reddit username"/>
+        <input type="password" placeholder="Password*"/>
+        <input type="password" placeholder="Confirm password*"/>
+        <button>JOIN THE FUTURE<br/>OF EUROPE</button>
+        </div>
+    </ul>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+    </script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

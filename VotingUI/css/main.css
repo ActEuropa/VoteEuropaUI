@@ -43,8 +43,17 @@ h1 {
     color: #DEB645;
     margin: 0px;
 }
-
-
+ul {
+    margin:auto;
+    margin-left:-48px;
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+ul > div{ 
+    max-width:256px; 
+}
 img.logo {
     min-width: 72px;
     width: 20%;
@@ -57,6 +66,7 @@ img.logo {
 }
 .center{
     margin:auto;
+    max-width:256px;
 }
 a{
     font-family: Vollkorn, serif;
@@ -77,7 +87,7 @@ form{
     margin: auto;
     padding:0px;
 }
-input {
+input,button {
     background: #001f38;
     border-width: thin;
     border-color: #002f55;
@@ -93,19 +103,23 @@ input {
 input:hover { background: #00182c; color: #bfc7cd; }
 input:focus { background: #001221; border-color: #DEB645; color: white;}
 
-input[type=submit] {
+input[type=submit], button {
      background: #DEB645;
      color: #C73E12;
      font-family: Montserrat, sans-serif;
      font-weight: bold;
 }
-input[type=submit]:hover { background: #e1bd57; color: #9f310e;}
-input[type=submit]:focus { background: #e4c46a; color: #8b2b0c; border-color: #002f55;}
+input[type=submit],button:hover { background: #e1bd57; color: #9f310e;}
+input[type=submit],button:focus { background: #e4c46a; color: #8b2b0c; border-color: #002f55;}
 #registerbutton {
     font-size:0.75em;
     font-family: Vollkorn, serif;
     margin: 2px 0px 8px;
     float:right;
+}
+#RegisterWarning {
+    max-width:512px;
+    margin-left:auto;margin-right:auto;width:512px;
 }
 
 /*VOTING PAGE:*/
@@ -297,6 +311,7 @@ h3 {
   .view-row > div { display: inline; }
   #logoutbutton { float:left; margin-left: 0px; }
   #tablewrapper { margin:0 -24px; max-height: none;}
+  #registerform1 { float: unser; }
 }
 
 
@@ -324,8 +339,8 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
+    border-top: 1px solid #DEB645;
+    margin: 1em 2px;
     padding: 0;
 }
 
