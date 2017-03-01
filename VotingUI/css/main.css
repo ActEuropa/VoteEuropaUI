@@ -136,11 +136,11 @@ input[type=submit],button:focus { background: #e4c46a; color: #8b2b0c; border-co
     width: 40%;
     vertical-align:top;
     order: 1;
-    overflow: hidden;
+    overflow:hidden;
 }
 #selectionarea{
     position:relative;
-
+    overflow: auto;
 }
 #votingarea {
     box-sizing:border-box;
