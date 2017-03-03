@@ -16,60 +16,58 @@ button,
 input,
 select,
 textarea {
-    color: #5d5d5d;
-    font-family: Vollkorn, serif;
+    color: #222;
+}
+#version_nb{
+    text-align: left;
+    opacity: 0.4;
+    position: absolute;
+    right: 8px;
+    margin-top: -22px;
 }
 body {
-    background-color: #EAEAEA;
-    position:relative;
-    line-height: 2em;
-}
-#navcont {
     background-color: #002F55;
-    padding:36px;
+    position:absolute;
+    top:0;bottom:0;left:0;bottom:0;
+    min-width:100%;
 }
-#navbar { 
-    padding:0px;
-    display:flex;
-    align-items: baseline;
-    margin: auto;
-    justify-content: center;
-    line-height: 1em;
-    margin-top:12px;
-}
-article {
-    width: 60%;
-    margin: 12px auto;
-    padding: 22px;
-    background-color: #d2d2d2;
-}
-img.logo {
-    width: 42px;
-    margin-bottom: -4px;
-    margin-right: 4px;
+
+html {
+    font-size: 1em;
 }
 h1 {
     font-family: Montserrat, sans-serif;
     font-weight: bold;
-    font-size: 48px;
+    text-align: center;
+    font-size: 9vmin;
     color: #DEB645;
-    text-align:center;
-    margin:0;
+    margin: 0px;
 }
-.navbtn{
-    font-family: Montserrat, sans-serif;
-    font-size:1.25em;
-    padding: 0px 12px 0px 12px;
+ul {
+    margin:auto;
+    margin-left:-48px;
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    justify-content: center;
 }
-
-.sociallinks{
-     position: absolute;
-     bottom: 0;
+ul > div{ 
+    max-width:256px; 
 }
-html {
-    font-size: 1em;
+img.logo {
+    min-width: 72px;
+    width: 20%;
+    max-width: 172px;
+    display:block;
+    margin:auto;
 }
-
+.logoParent{
+    margin: 24px 72px 0px
+}
+.center{
+    margin:auto;
+    max-width:256px;
+}
 a{
     font-family: Vollkorn, serif;
     font-size: 1em;
@@ -83,18 +81,110 @@ a:hover{ opacity:0.6; }
 a:active{ opacity:0.8; }
 a:focus { outline: 0; }
 
+/* LOGIN+REGISTER PAGE */
+form{
+    max-width:256px;
+    margin: auto;
+    padding:0px;
+}
+input,button {
+    background: #001f38;
+    border-width: thin;
+    border-color: #002f55;
+    font-family: Vollkorn, serif;
+    color: #808f9c;
+    padding: 8px;
+    margin: 2px 0px;
+    box-sizing: border-box;
+    width: 100%;
+    border-style: solid;
+    transition: background 200ms, color 200ms, border-color 200ms;
+}
+input:hover { background: #00182c; color: #bfc7cd; }
+input:focus { background: #001221; border-color: #DEB645; color: white;}
 
+input[type=submit], button {
+     background: #DEB645;
+     color: #C73E12;
+     font-family: Montserrat, sans-serif;
+     font-weight: bold;
+}
+input[type=submit],button:hover { background: #e1bd57; color: #9f310e;}
+input[type=submit],button:focus { background: #e4c46a; color: #8b2b0c; border-color: #002f55;}
+#registerbutton {
+    font-size:0.75em;
+    font-family: Vollkorn, serif;
+    margin: 2px 0px 8px;
+    float:right;
+}
+#RegisterWarning {
+    max-width:512px;
+    margin-left:auto;margin-right:auto;width:512px;
+}
 
+/*VOTING PAGE:*/
+.view-table {
+    display: table;
+    width: 100%;
+    margin: auto;
+    max-width: 800px;
+}
+.view-row { display: table-row; }
+.view-row > div { display: table-cell; }
+#selectionareawrapper {
+    background: #00294b;
+    width: 40%;
+    vertical-align:top;
+    order: 1;
+    overflow:hidden;
+}
+#selectionarea{
+    position:relative;
+    overflow: auto;
+}
+#votingarea {
+    box-sizing:border-box;
+    float:right;
+    background: #001f38;
+    width:100%;
+    margin:auto;
+    padding:38px;
+    order: 0;
+    z-index:2;
+}
+img.voteIcon
+{
+    width:48px;
+    height:48px;
+    vertical-align:middle;
+    margin:16px;
+}
+.listitem {
+    vertical-align: top;
+    height: 82px;
+    width: 100%;
+    transition: background 100ms;
+    background:#00294b; 
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+}
+.listitem_imgwrapper{
+    width:80px;
+}
 h4 {
     font-family: Vollkorn, serif;
     font-weight: normal;
     font-size: 1em;
+    color: white;
     margin:2px 0px 0px 0px;
 }
 h5 {
     font-family: Vollkorn, serif;
     font-weight: normal;
     font-size: 0.75em;
+    color:white;
     opacity:0.5;
     margin:0px;
 }
@@ -103,18 +193,125 @@ h2 {
     font-weight: normal;
     font-size: 2em;
     text-align: center;
+    color: white;
     margin:0;
-    color:black;
 }
 h3 {
-    font-size:1.5em;
     font-family: Vollkorn, serif;
     font-weight:normal;
-    opacity: 1;
-    margin-top:16px;
-    margin-bottom:6px;
-    color: black;
+    opacity: 0.34;
+    text-align: center;
+    color: white;
+    margin:0;
 }
+#voteoptions {
+    table-layout:fixed;
+    border-collapse:separate;
+    border-spacing:24px;
+    width:100%;
+    float:left;
+}
+#tablewrapper {
+    margin:0 -24px;
+    max-height: 252px;
+    overflow-y: auto;
+}
+.Ballot {
+    font-family: Vollkorn, serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+    vertical-align: middle;
+    height: 88px;
+    cursor: pointer;
+    background: #DEB645;
+    color: #C73E12;
+    padding:-38px;
+    transition: background 100ms, color 200ms;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+}
+.Ballot:hover { background: #e1bd57; color: #9f310e; }
+.Ballot:active { background: #C73E12; color: #DEB645; }
+.Ballot_nb {
+    font-family: Vollkorn, serif;
+    width:32px;
+    padding: 4px 0px 0px 4px;
+    height: 1.69em;
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+    opacity:0.2;
+}
+.sortitem { margin: 4px 0px 0px 4px }
+
+#logoutbutton {
+    float: right;
+    margin-top: 14px;
+    margin-left: 14px;
+}
+#archivedbutton {
+    float:left;
+    margin-top:4px;
+    position:fixed;
+}
+#activebutton {
+    float:right;
+    margin-top:4px;
+    margin-right:140px;
+    opacity:0;
+    visibility: hidden;
+}
+#stvwarn { margin-top:12px; opacity:1;}
+#stvsubmit { margin-bottom:24px; float:right;}
+
+/* OVERLAY */
+#overlay {
+    position: fixed;
+    top: 0; right: 0; left: 0; bottom: 0;
+    margin:auto;
+    z-index:3;
+    visibility: collapse;
+    
+}
+#overlaybody {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding:24px;
+}
+#overlaybg{
+    position: fixed;
+    top: 0; right: 0; left: 0; bottom: 0;
+    width:100%; height:100%;
+    background:#002F55;
+}
+#confirmbtn {
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    font-size: 4vmin;
+    text-transform: capitalize;
+    text-align: center;
+    display: block;
+}
+#confirmclose {
+    cursor:pointer;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+}
+/* RESPONSIVE CODE */
+@media screen and (max-width: 640px) {
+  #selectionareawrapper { width:100%; }
+  .view-row { display: flex; flex-flow:column;}
+  .view-row > div { display: inline; }
+  #logoutbutton { float:left; margin-left: 0px; }
+  #tablewrapper { margin:0 -24px; max-height: none;}
+  #registerform1 { float: unser; }
+}
+
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
