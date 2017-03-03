@@ -37,7 +37,7 @@ function LoadQuestions(page_nb)
     for (i = 0; i < Questions.length; i++) 
     {
         var iconurl = "img/vote_pending.svg"
-        if(Questions[i].HasAnswered) iconurl = "img/vote_done.svg";
+        if(Questions[i].HasVoted) iconurl = "img/vote_done.svg";
         var timeleft = (Questions[i].expiredate.getTime() - new Date().getTime());
         var datestring = ( timeleft / 86400000).toFixed() + " days left";
         if(timeleft<86400000) datestring = (timeleft / 3600000).toFixed() + " hours left";
@@ -59,6 +59,7 @@ function LoadQuestions(page_nb)
            if(Questions[i].id == id)
            {
                document.getElementById("qtitle").innerText = Questions[i].title;
+               document.getElementById("ConfirmQuestion").innerText = Questions[i].title;
                document.getElementById("qsubtitle").innerText = Questions[i].subtitle;
                if(Questions[i].stv == true){$("#stvwarn").show();$("#stvsubmit").show();}
                else {$("#stvwarn").hide();$("#stvsubmit").hide();}
@@ -100,7 +101,7 @@ function LoadQuestions(page_nb)
                    if( isSTV  == true){
                        var nb = row.insertCell();
                        nb.setAttribute("class","Ballot_nb");
-                       nb.innerText = j.toString();
+                       nb.innerText = (j+1).toString();
                        mdiv.innerHTML = mdiv.innerHTML + "<div class=\"sortitem\"><span class=\"Ballot stv\" unselectable=\"on\" style=\"padding: 0px 4px;\">" + Questions[i].options[j]; + "</span></div>"
                    }
                    else
@@ -156,9 +157,27 @@ function LoadQuestions(page_nb)
    })
    $(document).on('click', '.Ballot', function () {
        if(isSTV == true) return;
-      document.getElementById("confirmbtn").innerText = "Yes, I want to vote for \"" + this.innerText + "\"";
+      document.getElementById("ConfirmList").innerText = "\"" + this.innerText + "\"";
+      $("#ConfirmList").css("text-align","center");
       $("#overlay").css("visibility", "visible");
       $("#overlay").show(300);
+   });
+      $(document).on('click', '#stvsubmit', function () {
+       if(isSTV == true)
+       {
+        var items = $("#stvlist").children(".sortitem");
+        var itemstring = "";
+        for (i = 0; i < items.length; i++) 
+        {
+            itemstring = itemstring + (i+1).toString() +" - " + items[i].innerText + "\n";
+        }
+        document.getElementById("ConfirmList").innerText = itemstring.trim() ;
+        $("#ConfirmList").css("text-align","left");
+        $("#overlay").css("visibility", "visible");
+        $("#overlay").show(300);
+       }
+
+
    });
    $('table.listitem').hover(
        function() { if($(this).css("background-color") != "rgb(0, 31, 56)") $(this).css("background", "#002443"); },
