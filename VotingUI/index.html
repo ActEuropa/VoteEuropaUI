@@ -19,28 +19,19 @@
     <link id="favicon" href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 
-<body>
+<body onload="ShowMD()">
     <!--[if lt IE 7]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
         <nav id="navcont">
-            <h1><span style="color: #C73E12;">ACT</span><span>EUROPA</span></h1>
+            <div id="logo"><span style="color: #C73E12;">ACT</span><span>EUROPA</span></div>
             <ul id="navbar">
                 <li><a class="navbtn" href="#">MANIFESTO</a></li>
-                <li><a class="navbtn" href="#Data">POLITICAL DATA</a></li>
-                <li><a class="navbtn" href="/VotingPortal.html">VOTING PLATFORM</a></li>
+                <li><a class="navbtn" href="/PoliticalData.html">POLITICAL DATA</a></li>
+                <li><a class="navbtn" href="/VotingPortal.html">VOTE EUROPA</a></li>
             </ul>
         </nav>
-        <article>
-            <header><h2>Our Manifesto</h2></header>
-            <body>
-                <h3>Preface</h3>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod, nisi eget lobortis eleifend, dolor velit dignissim mi, id lobortis leo mauris non ante. Aenean felis quam, ullamcorper eu egestas non, efficitur id ex. Nam et lorem id tortor sodales tincidunt. Suspendisse sed nisi arcu. Aliquam sollicitudin malesuada ipsum, a rutrum ipsum consectetur in. Vivamus in est augue. Aliquam erat volutpat. Maecenas volutpat eros ante, et pretium ipsum lacinia blandit. Aenean velit lacus, aliquam et lacinia at, vestibulum at sapien. Morbi tempor magna a consectetur tempus. Aliquam vitae ornare leo. Sed varius scelerisque ante id blandit. Nunc malesuada pharetra justo vel sagittis.
-<h3>An amazing europe</h3>
-Quisque laoreet ornare risus vel tincidunt. Donec sit amet lobortis purus, nec congue ante. Curabitur fringilla ipsum accumsan sodales semper. Etiam ut scelerisque turpis. Quisque at pharetra magna. Sed condimentum sollicitudin facilisis. Phasellus sit amet purus et elit aliquet aliquam. Phasellus vel dapibus sem. Sed tempus ac ante sed facilisis. Curabitur pellentesque consectetur neque. Vivamus sit amet maximus ante. Suspendisse pellentesque, ante et tempus cursus, velit turpis commodo risus, eu suscipit nisl erat nec arcu. Vivamus gravida blandit egestas. Donec felis eros, placerat pellentesque lectus vitae, rutrum consectetur justo. Sed semper erat at dui commodo ultrices. 
-<h3>A yuge europe</h3>
-Suspendisse a volutpat enim. Duis hendrerit, velit in finibus suscipit, nibh nibh maximus mauris, eu pharetra diam urna sed libero. Aliquam posuere nisi sit amet eros tempus hendrerit lobortis id dolor. Morbi eget tortor enim. Duis auctor malesuada leo, ac condimentum risus lacinia sed. Nulla tempus luctus lorem vel mattis. Fusce vehicula turpis dapibus erat congue venenatis. Donec mattis metus a malesuada hendrerit. Nulla auctor quis justo gravida sollicitudin. Nam vel lacus nisi. Nullam enim risus, dictum ullamcorper magna sit amet, ornare aliquet sapien. Fusce ultrices nisi laoreet leo varius lobortis. Nunc ultricies elit at vehicula vehicula. Phasellus mattis velit vel elit ultrices dictum. Pellentesque lacus arcu, facilisis id justo id, commodo placerat sapien. Donec sit amet lacus at diam volutpat sodales nec quis massa. 
-            </body>
+        <article id="mainarticle">
         </article>
 </body>
 
@@ -48,8 +39,8 @@ Suspendisse a volutpat enim. Duis hendrerit, velit in finibus suscipit, nibh nib
 <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
 </script>
-<script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
+<script src="js/snarkdown.js"></script>
 </body>
 
 </html>

@@ -48,7 +48,7 @@ img.logo {
     margin-bottom: -4px;
     margin-right: 4px;
 }
-h1 {
+#logo {
     font-family: Montserrat, sans-serif;
     font-weight: bold;
     font-size: 48px;
@@ -60,6 +60,7 @@ h1 {
     font-family: Montserrat, sans-serif;
     font-size:1.25em;
     padding: 0px 12px 0px 12px;
+    color: white;
 }
 
 .sociallinks{
@@ -75,44 +76,33 @@ a{
     font-size: 1em;
     text-decoration: none;
     vertical-align: text-bottom;
-    color: white;
+    color: black;
     opacity: 0.34;
+    margin: 0px;
     transition: opacity 200ms;
+    line-height:1.25em;
 }
 a:hover{ opacity:0.6; }
 a:active{ opacity:0.8; }
 a:focus { outline: 0; }
 
-
-
-h4 {
-    font-family: Vollkorn, serif;
-    font-weight: normal;
-    font-size: 1em;
-    margin:2px 0px 0px 0px;
-}
-h5 {
-    font-family: Vollkorn, serif;
-    font-weight: normal;
-    font-size: 0.75em;
-    opacity:0.5;
-    margin:0px;
-}
-h2 {
-    font-family: Vollkorn, serif;
-    font-weight: normal;
-    font-size: 2em;
-    text-align: center;
-    margin:0;
+h1 {
+    margin: 0px;
     color:black;
 }
+h2 {
+    margin: 22px 0px 8px ;
+    color:black;
+}
+h2:after {
+    content:' ';
+    display:block;
+    border:0.5px solid black;
+    margin: 4px 0px 24px 0px;
+    opacity: 0.1;
+ }
 h3 {
-    font-size:1.5em;
-    font-family: Vollkorn, serif;
-    font-weight:normal;
-    opacity: 1;
-    margin-top:16px;
-    margin-bottom:6px;
+    margin: 0px;
     color: black;
 }
 
