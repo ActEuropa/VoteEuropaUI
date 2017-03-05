@@ -17,161 +17,19 @@
             <div id="logo"><span style="color: #C73E12;">ACT</span><span>EUROPA</span></div>
             <ul id="navbar">
                 <li><a class="navbtn" href="#">MANIFESTO</a></li>
-                <li><a class="navbtn" href="/PoliticalData.html">POLITICAL DATA</a></li>
+                <li><a class="navbtn" style="opacity:1;" href="/PoliticalData.html">POLITICAL DATA</a></li>
                 <li><a class="navbtn" href="/VotingPortal.html">VOTE EUROPA</a></li>
             </ul>
         </nav>
-		<div id="container"></div>
+		<div id="container" onclick="click" style="width:50%;height:50%;"></div>
 
-		<script src="js/3js/three.min.js"></script>
+		<script src="js/3js/3xdom.js"></script>
+        <script src="js/3js/three.min.js"></script>
 		<script src="js/3js/geometries/hilbert3D.js"></script>
 		<script src="js/3js/controls/OrbitControls.js"></script>
 		<script src="js/3js/Detector.js"></script>
 		<script src="js/3js/libs/stats.min.js"></script>
-
-		<script>
-
-			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-
-			var renderer, scene, camera, stats;
-			var objects = [];
-
-
-			var WIDTH = window.innerWidth,
-				HEIGHT = window.innerHeight;
-
-			init();
-			animate();
-
-			function init() {
-				camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2,  -2000, 2000 );
-
-				scene = new THREE.Scene();
-
-				scene.fog = new THREE.Fog( 0xd2d2d2, 200, -400 );
-
-				root = new THREE.Object3D();
-
-				var subdivisions = 6;
-				var recursion = 1;
-
-				var geometryCube = cube( 300 );
-				geometryCube.computeLineDistances();
-
-
-
-				var object = new THREE.LineSegments( geometryCube, new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 1 } ) );
-				
-
-				objects.push( object );
-				scene.add( object );
-
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
-				renderer.setClearColor( 0xd2d2d2 );
-				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( WIDTH, HEIGHT );
-
-				var container = document.getElementById( 'container' );
-				container.appendChild( renderer.domElement );
-
-				stats = new Stats();
-				container.appendChild( stats.dom );
-
-				//controls
-				var controls = new THREE.OrbitControls( camera, renderer.domElement );
-				controls.target.set( 0, 1, 0 );
-				controls.update();
-
-				window.addEventListener( 'resize', onWindowResize, false );
-				
-
-			}
-
-			function cube( size ) {
-
-				var h = size * 0.5;
-
-				var geometry = new THREE.Geometry();
-
-				geometry.vertices.push(
-					new THREE.Vector3( -h, -h, -h ),
-					new THREE.Vector3( -h, h, -h ),
-
-					new THREE.Vector3( -h, h, -h ),
-					new THREE.Vector3( h, h, -h ),
-
-					new THREE.Vector3( h, h, -h ),
-					new THREE.Vector3( h, -h, -h ),
-
-					new THREE.Vector3( h, -h, -h ),
-					new THREE.Vector3( -h, -h, -h ),
-
-
-					new THREE.Vector3( -h, -h, h ),
-					new THREE.Vector3( -h, h, h ),
-
-					new THREE.Vector3( -h, h, h ),
-					new THREE.Vector3( h, h, h ),
-
-					new THREE.Vector3( h, h, h ),
-					new THREE.Vector3( h, -h, h ),
-
-					new THREE.Vector3( h, -h, h ),
-					new THREE.Vector3( -h, -h, h ),
-
-					new THREE.Vector3( -h, -h, -h ),
-					new THREE.Vector3( -h, -h, h ),
-
-					new THREE.Vector3( -h, h, -h ),
-					new THREE.Vector3( -h, h, h ),
-
-					new THREE.Vector3( h, h, -h ),
-					new THREE.Vector3( h, h, h ),
-
-					new THREE.Vector3( h, -h, -h ),
-					new THREE.Vector3( h, -h, h )
-				 );
-
-				return geometry;
-
-			}
-
-			function onWindowResize() {
-
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
-
-				renderer.setSize( window.innerWidth, window.innerHeight );
-
-			}
-
-			function animate() {
-
-				requestAnimationFrame( animate );
-
-				render();
-				stats.update();
-
-			}
-
-			function render() {
-
-				var time = Date.now() * 0.001;
-
-				for ( var i = 0; i < objects.length; i ++ ) {
-
-					var object = objects[ i ];
-
-					//object.rotation.x = 0.25 * time * ( i%2 == 1 ? 1 : -1);
-					//object.rotation.y = 0.5 * time;
-
-				}
-
-				renderer.render( scene, camera );
-
-			}
-
-	</script>
+		<script src="js/PoliticalData.js"></script>
 
 </body>
 
