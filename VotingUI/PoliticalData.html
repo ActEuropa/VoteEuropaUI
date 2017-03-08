@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,24 +13,48 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Vollkorn" rel="stylesheet">
     <link id="favicon" href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
-	<body>
-		<nav id="navcont">
-            <div id="logo"><span style="color: #C73E12;">ACT</span><span>EUROPA</span></div>
-            <ul id="navbar">
-                <li><a class="navbtn" href="#">MANIFESTO</a></li>
-                <li><a class="navbtn" style="opacity:1;" href="/PoliticalData.html">POLITICAL DATA</a></li>
-                <li><a class="navbtn" href="/VotingPortal.html">VOTE EUROPA</a></li>
-            </ul>
-        </nav>
-		<div id="container" onclick="click" style="width:50%;height:50%;"></div>
 
-		<script src="js/3js/3xdom.js"></script>
-        <script src="js/3js/three.min.js"></script>
-		<script src="js/3js/geometries/hilbert3D.js"></script>
-		<script src="js/3js/controls/OrbitControls.js"></script>
-		<script src="js/3js/Detector.js"></script>
-		<script src="js/3js/libs/stats.min.js"></script>
-		<script src="js/PoliticalData.js"></script>
+<body>
+    <nav id="navcont">
+        <div id="logo"><span style="color: #C73E12;">ACT</span><span>EUROPA</span></div>
+        <ul id="navbar">
+            <li><a class="navbtn" href="#">MANIFESTO</a></li>
+            <li><a class="navbtn" style="opacity:1;" href="/PoliticalData.html">POLITICAL DATA</a></li>
+            <li><a class="navbtn" href="/VotingPortal.html">VOTE EUROPA</a></li>
+        </ul>
+    </nav>
+    <div class="flexbox">
+    <select size="24" style="margin-top:6px;">
+        <option>Spain</option>
+        <option>France</option>
+        <option>Germany</option>
+        <option>Netherlands</option>
+        <option>Italy</option>
+     </select>
+    <select size="24">
+        <option class="optionheader" disabled="true">2017 Elections</option>
+        <option>Candidates</option>
+        <option>Parties</option>
+        <option class="optionheader" disabled="true">2017 Legislatives</option>
+        <option>Candidates</option>
+        <option>Parties</option>
+        <option class="optionheader" disabled="true">Parlement</option>
+        <option>Assemblée Nationale</option>
+        <option>Senate</option>
+        <option class="optionheader" disabled="true">Other</option>
+        <option>All parties</option>
+        <option>All politicians</option>
+    </select>
+    <div id="container" onclick="click"></div>
+    </div>
+    <script src="js/3js/3xdom.js"></script>
+    <script src="js/3js/three.min.js"></script>
+    <script src="js/3js/tween.js"></script>
+    <script src="js/3js/geometries/hilbert3D.js"></script>
+    <script src="js/3js/controls/OrbitControls.js"></script>
+    <script src="js/3js/Detector.js"></script>
+    <script src="js/3js/libs/stats.min.js"></script>
+    <script src="js/PoliticalData.js"></script>
 
 </body>
 

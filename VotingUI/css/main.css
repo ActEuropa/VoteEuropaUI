@@ -106,6 +106,28 @@ h3 {
     color: black;
 }
 
+/* POLITICAL DATA PAGE */
+.option {
+    opacity: 0.8;
+}
+.optionheader {
+    font-weight: bold;
+    margin-top: 6px;
+    opacity:1;
+}
+select:not(:checked) {
+   color: gray;
+}
+select {
+    background-color: #eaeaea;
+    border-style: none;
+    overflow-y: auto;
+}
+.flexbox{
+    display:flex;
+    align-items: stretch;
+    align-content: center;
+}
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection rule sets have to be separate.
