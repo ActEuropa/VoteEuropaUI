@@ -13,7 +13,7 @@ function Person(FirstName, LastName, DateOfBirth, Liberal_sc, Libertarian_sc, Pr
 
 var p1 = new Person("Emmanuel", "Macron", "", 80, 70, 80, "", "", "En Marche!", "FR");
 var p2 = new Person("Jean-Luc", "Mélenchon", "", 95, 10, 60, "", "", "La France Insoumise", "FR");
-var p3 = new Person("Marine", "Le Pen", "", 0, 10, 10, "", "", "La France Insoumise", "FR");
+var p3 = new Person("Marine", "Le Pen", "", 3, 10, 10, "", "", "La France Insoumise", "FR");
 var p4 = new Person("François", "Fillon", "", 10, 95, 40, "", "", "La France Insoumise", "FR");
 var Candidates = [p1, p2, p3, p4];
 if (!Detector.webgl) Detector.addGetWebGLMessage();
@@ -189,7 +189,7 @@ function cross(size, x, y, z) {
     var h = size * 0.5;
 
     var geometry = new THREE.Geometry();
-
+    if(checkforview != "side")
     geometry.vertices.push(
         new THREE.Vector3(x, y, -(dimension / 2)),
         new THREE.Vector3(x, y, dimension / 2)
