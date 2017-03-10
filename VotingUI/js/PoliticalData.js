@@ -25,8 +25,10 @@ var points_r = []; /* Point array to keep track of original location */
 var points = [];
 var textlabels = [];
 
-var WIDTH = window.innerWidth,
-    HEIGHT = window.innerHeight;
+var WIDTH = 600,
+    HEIGHT = 600,
+    LEFT = 0,
+    TOP = 0
 var dimension = 512;
 var perspective = true;
 init();
@@ -91,7 +93,11 @@ function init() {
     controls.addEventListener('end', orbitcheck);
     controls.addEventListener('change', moved);
     controls.target.set(0, 1, 0);
+    controls.enableZoom = false;
+    controls.enablePan = false;
     controls.update();
+
+    onWindowResize();
 
     window.addEventListener('resize', onWindowResize, false);
 }
@@ -102,7 +108,7 @@ function createTextLabel() {
     div.style.width = 100;
     div.style.height = 100;
     div.style.color = "#C73E12";
-    div.innerHTML = "hi there!";
+    div.innerHTML = "";
     div.style.top = -1000;
     div.style.left = -1000;
 
@@ -124,13 +130,13 @@ function createTextLabel() {
             }
 
             var coords2d = this.get2DCoords(this.position, _this.camera);
-            this.element.style.left = coords2d.x + 260 + 'px';
-            this.element.style.top = coords2d.y + 124 + 'px';
+            this.element.style.left = coords2d.x + 'px';
+            this.element.style.top = coords2d.y + 'px';
         },
         get2DCoords: function (position, camera) {
             var vector = position.project(camera);
-            vector.x = (vector.x + 1) / 2 * window.innerWidth;
-            vector.y = -(vector.y - 1) / 2 * window.innerHeight;
+            vector.x = (vector.x + 1) / 2* WIDTH + LEFT + 12;
+            vector.y = -(vector.y - 1) / 2 * HEIGHT + TOP - 16;
             return vector;
         }
     };
@@ -209,11 +215,14 @@ function cross(size, x, y, z) {
 
 function onWindowResize() {
 
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = WIDTH / HEIGHT;
     camera.updateProjectionMatrix();
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
+    var cont = document.getElementById("container");
+    HEIGHT = cont.offsetHeight;
+    WIDTH = cont.offsetWidth;
+    LEFT = cont.offsetLeft;
+    TOP = cont.offsetTop;
+    renderer.setSize(WIDTH, HEIGHT);
 }
 
 function animate(time) {

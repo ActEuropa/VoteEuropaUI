@@ -24,38 +24,59 @@
         </ul>
     </nav>
     <div class="flexbox">
-    <select size="24" style="margin-top:6px;">
-        <option>Spain</option>
-        <option>France</option>
-        <option>Germany</option>
-        <option>Netherlands</option>
-        <option>Italy</option>
-     </select>
-    <select size="24">
-        <option class="optionheader" disabled="true">2017 Elections</option>
-        <option>Candidates</option>
-        <option>Parties</option>
-        <option class="optionheader" disabled="true">2017 Legislatives</option>
-        <option>Candidates</option>
-        <option>Parties</option>
-        <option class="optionheader" disabled="true">Parlement</option>
-        <option>Assemblée Nationale</option>
-        <option>Senate</option>
-        <option class="optionheader" disabled="true">Other</option>
-        <option>All parties</option>
-        <option>All politicians</option>
-    </select>
-    <div id="container" onclick="click"></div>
+        <div>
+            <span class="sectionHeader">FEATURED</span><br/>
+            <div class="btndiv"><a class="plainbtn">French presidental election, 2017</a></div>
+            <div class="btndiv"><a class="plainbtn">Dutch general election, 2017</a></div>
+            <div class="btndiv"><a class="plainbtn">German federal election, 2017</a></div>
+            <div class="btndiv"><a class="plainbtn">Norwegian parlementary election, 2017</a></div>
+            
+            <span class="sectionHeader">ALL DATA</span><br/>
+            <table class="filter">
+                <tbody>
+                <tr>
+                    <td style="padding-right:12px;">Country: </td>
+                    <td>
+                        <select>
+                            <option>France</option>
+                            <option>Germany</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-right:12px;">Year:</td>
+                    <td>
+                        <select>
+                            <option>2017</option>
+                            <option>2016</option>
+                            <option>2015</option>
+                            <option>2014</option>
+                            <option>2013</option>
+                            <option>2012</option>
+                            <option>2011</option>
+                            <option>2010</option>
+                            <option>2009</option>
+                            <option>2008</option>
+                            <option>2007</option>
+                            <option>2006</option>
+                            <option>2005</option>
+                            <option>2004</option>
+                        </select>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="container" onclick="click"></div>
     </div>
     <script src="js/3js/3xdom.js"></script>
     <script src="js/3js/three.min.js"></script>
     <script src="js/3js/tween.js"></script>
-    <script src="js/3js/geometries/ConvexGeometry.js"></script>
     <script src="js/3js/controls/OrbitControls.js"></script>
     <script src="js/3js/Detector.js"></script>
     <script src="js/3js/libs/stats.min.js"></script>
     <script src="js/PoliticalData.js"></script>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </body>
 
 </html>

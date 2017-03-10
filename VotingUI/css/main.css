@@ -21,8 +21,8 @@ textarea {
 }
 body {
     background-color: #EAEAEA;
-    position:relative;
     line-height: 2em;
+    width:100%;
 }
 #navcont {
     background-color: #002F55;
@@ -116,17 +116,40 @@ h3 {
     opacity:1;
 }
 select:not(:checked) {
-   color: gray;
+   color: #002F55;
 }
-select {
+select{
     background-color: #eaeaea;
     border-style: none;
-    overflow-y: auto;
 }
 .flexbox{
+    margin: 0 auto;
     display:flex;
-    align-items: stretch;
-    align-content: center;
+    justify-content: center;
+}
+.sectionHeader{
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #C73E12;
+    display: inline-block;
+    padding-top:8px;
+}
+.plainbtn{
+    font-family: Vollkorn, serif;
+    opacity: 1;
+    color: #002F55;
+    cursor:pointer;
+}
+.plainbtn:hover{opacity:0.85;}
+.plainbtn:active{opacity:0.5;}
+.btndiv{ margin-top:-8px;}
+
+.filter{
+    border-collapse: collapse;
+}
+.filter>tbody>tr>td{
+    line-height:20px;
 }
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
