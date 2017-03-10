@@ -12,9 +12,9 @@ function Person(FirstName, LastName, DateOfBirth, Liberal_sc, Libertarian_sc, Pr
 }
 
 var p1 = new Person("Emmanuel", "Macron", "", 80, 70, 80, "", "", "En Marche!", "FR");
-var p2 = new Person("Jean-Luc", "Mélenchon", "", 95, 10, 60, "", "", "La France Insoumise", "FR");
+var p2 = new Person("Jean-Luc", "Mélenchon", "", 95, 10, 40, "", "", "La France Insoumise", "FR");
 var p3 = new Person("Marine", "Le Pen", "", 3, 10, 10, "", "", "La France Insoumise", "FR");
-var p4 = new Person("François", "Fillon", "", 10, 95, 40, "", "", "La France Insoumise", "FR");
+var p4 = new Person("François", "Fillon", "", 10, 95, 60, "", "", "La France Insoumise", "FR");
 var Candidates = [p1, p2, p3, p4];
 if (!Detector.webgl) Detector.addGetWebGLMessage();
 
@@ -25,8 +25,8 @@ var points_r = []; /* Point array to keep track of original location */
 var points = [];
 var textlabels = [];
 
-var WIDTH = window.innerWidth / 1.5,
-    HEIGHT = window.innerHeight / 1.5;
+var WIDTH = window.innerWidth,
+    HEIGHT = window.innerHeight;
 var dimension = 512;
 var perspective = true;
 init();
@@ -129,8 +129,8 @@ function createTextLabel() {
         },
         get2DCoords: function (position, camera) {
             var vector = position.project(camera);
-            vector.x = (vector.x + 1) / 2 * WIDTH;
-            vector.y = -(vector.y - 1) / 2 * HEIGHT;
+            vector.x = (vector.x + 1) / 2 * window.innerWidth;
+            vector.y = -(vector.y - 1) / 2 * window.innerHeight;
             return vector;
         }
     };
@@ -227,11 +227,9 @@ function animate(time) {
 var checkforview = undefined;
 function render() {
     var time = Date.now() * 0.001;
-    for (var i = 0; i < points.length; i++) {
-        var object = points[i];
-    }
-    for (var i = 0; i < this.textlabels.length; i++) {
-        this.textlabels[i].updatePosition();
+
+    for (var i = 0; i < textlabels.length; i++) {
+        textlabels[i].updatePosition();
     }
     renderer.render(scene, camera);
 }
@@ -308,6 +306,7 @@ function moved() {
         }
     }
 }
+var meshes = [];
 function AddPoint(label, x, y, z, scene) {
     var material = new THREE.MeshBasicMaterial({
         color: 0xC73E12, depthWrite: false
@@ -331,7 +330,7 @@ function AddPoint(label, x, y, z, scene) {
     domEvents.addEventListener(mesh, 'mouseover', function (event) {
         var geometryCube = cross(dimension, mesh.position.x, mesh.position.y, mesh.position.z);
         geometryCube.computeLineDistances();
-        crosshair = new THREE.LineSegments(geometryCube, new THREE.LineBasicMaterial({ color: 0xC73E12, linewidth: 1 }));
+        crosshair = new THREE.LineSegments(geometryCube, new THREE.LineBasicMaterial({ color: 0xC73E12, linewidth: 1, depthWrite: false, depthTest: false, renderOrder: 3}));
         scene.add(crosshair);
     }, false)
     domEvents.addEventListener(mesh, 'mouseout', function (event) {
