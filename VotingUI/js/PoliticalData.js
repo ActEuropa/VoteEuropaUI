@@ -25,8 +25,8 @@ var points_r = []; /* Point array to keep track of original location */
 var points = [];
 var textlabels = [];
 
-var WIDTH = 600,
-    HEIGHT = 600,
+var WIDTH = 528,
+    HEIGHT = 528,
     LEFT = 0,
     TOP = 0
 var dimension = 512;
@@ -346,3 +346,11 @@ function AddPoint(label, x, y, z, scene) {
         scene.remove(crosshair);
     }, false)
 }
+
+//Sticky headers:
+jQuery(document).ready(function(){
+    $('#sticky-list').stickySectionHeaders({
+        stickyClass     : 'sticky',
+        headlineSelector: 'strong'
+});
+});

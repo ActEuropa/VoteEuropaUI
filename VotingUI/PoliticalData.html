@@ -24,29 +24,28 @@
         </ul>
     </nav>
     <div class="flexbox">
-        <div>
+        <div id="">
             <span class="sectionHeader">FEATURED</span><br/>
             <div class="btndiv"><a class="plainbtn">French presidental election, 2017</a></div>
             <div class="btndiv"><a class="plainbtn">Dutch general election, 2017</a></div>
             <div class="btndiv"><a class="plainbtn">German federal election, 2017</a></div>
             <div class="btndiv"><a class="plainbtn">Norwegian parlementary election, 2017</a></div>
-            
             <span class="sectionHeader">ALL DATA</span><br/>
             <table class="filter">
                 <tbody>
-                <tr>
-                    <td style="padding-right:12px;">Country: </td>
-                    <td>
-                        <select>
+                    <tr>
+                        <td style="padding-right:12px;">Country: </td>
+                        <td>
+                            <select>
                             <option>France</option>
                             <option>Germany</option>
                         </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-right:12px;">Year:</td>
-                    <td>
-                        <select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-right:12px;">Range:</td>
+                        <td>
+                            <select>
                             <option>2017</option>
                             <option>2016</option>
                             <option>2015</option>
@@ -61,14 +60,76 @@
                             <option>2006</option>
                             <option>2005</option>
                             <option>2004</option>
-                        </select>
-                    </td>
-                </tr>
+                           </select>
+                           -
+                            <select>
+                            <option>2017</option>
+                            <option>2016</option>
+                            <option>2015</option>
+                            <option>2014</option>
+                            <option>2013</option>
+                            <option>2012</option>
+                            <option>2011</option>
+                            <option>2010</option>
+                            <option>2009</option>
+                            <option>2008</option>
+                            <option>2007</option>
+                            <option>2006</option>
+                            <option>2005</option>
+                            <option>2004</option>
+                           </select>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
+            <div id="sticky-list-cont">
+            <div id="sticky-list">
+                <ul>
+                    <li>
+                        <strong>2017 General Elections</strong>
+                        <ul>
+                            <li class="listitem">Candidates</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>2017 Parlementary Elections</strong>
+                        <ul>
+                            <li class="listitem">Candidates</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Government</strong>
+                        <ul>
+                            <li class="listitem">Bernard Cazeneuve I (Since December 2016)</li>
+                            <li class="listitem">Manuel Valls II (August 2014 - December 2016)</li>
+                            <li class="listitem">Manuel Valls I (March 2014 - August 2014)</li>
+                            <li class="listitem">Jean-Marc Ayrault II (June 2012 - March 2014)</li>
+                            <li class="listitem">Jean-Marc Ayrault I (May 2012 - June 2012)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Parlement (XIV)</strong>
+                        <ul>
+                            <li class="listitem">National Assembly</li>
+                            <li class="listitem">Senate</li>
+                            <li style="height:20px;width:1px;"></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            </div>
         </div>
         <div id="container" onclick="click"></div>
     </div>
+    <div class="center">
+        <span class="sectionHeader">SELECTED DATA</span>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+    </script>
+    <script src="js/plugins.js"></script>
     <script src="js/3js/3xdom.js"></script>
     <script src="js/3js/three.min.js"></script>
     <script src="js/3js/tween.js"></script>
@@ -76,7 +137,6 @@
     <script src="js/3js/Detector.js"></script>
     <script src="js/3js/libs/stats.min.js"></script>
     <script src="js/PoliticalData.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </body>
 
 </html>

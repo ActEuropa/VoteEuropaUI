@@ -79,12 +79,10 @@ a{
     color: black;
     opacity: 0.34;
     margin: 0px;
-    transition: opacity 200ms;
     line-height:1.25em;
 }
-a:hover{ opacity:0.6; }
+a:hover{ opacity:0.6;}
 a:active{ opacity:0.8; }
-a:focus { outline: 0; }
 
 h1 {
     margin: 0px;
@@ -140,9 +138,10 @@ select{
     opacity: 1;
     color: #002F55;
     cursor:pointer;
+    transition:200ms;
 }
-.plainbtn:hover{opacity:0.85;}
-.plainbtn:active{opacity:0.5;}
+.plainbtn:hover{opacity:0.75;}
+.plainbtn:active{opacity:0.4;}
 .btndiv{ margin-top:-8px;}
 
 .filter{
@@ -150,6 +149,83 @@ select{
 }
 .filter>tbody>tr>td{
     line-height:20px;
+}
+
+/*Data list */
+#sticky-list  {
+  height:256px;
+  width:300px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Data list */
+#sticky-list-cont{
+  border-color: #7f97aa;
+  border-style:solid;
+  border-width:1px;
+  padding-left:24px;
+  margin-top:8px;
+}
+#sticky-list > ul {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /*This is just to a fix a very odd glitch when you're scrolled down */
+  padding-bottom:2px;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+    font-size:0.9em;
+    line-height:0px;
+}
+.listitem{
+    margin-top:12px;
+    line-height: 12px;
+    opacity:0.6;
+    cursor:pointer;
+    color:#002F55;
+    transition: 200ms;
+}
+.listitem:hover{ opacity:0.75;}
+.listitem:active{ opacity:1; transform: translateX(4px)}
+/* Section headers */
+#sticky-list > ul > li strong {
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: #002F55;
+    background: #EAEAEA;
+    line-height:20px;
+    box-sizing: border-box;
+    display:inline-block;
+    padding-top:12px;
+    width:100%;
+    z-index: 100;
+}
+#sticky-list > ul strong:after {
+    content:' ';
+    display:block;
+    border:0.5px solid #002F55;
+    margin: 0px 60px 0px 0px;
+    opacity: 0.2;
+    background: #EAEAEA;
+ }
+/* Section headers when "sticky" */
+#sticky-list > ul > li.sticky strong {
+  position: absolute;
+  top:0;
+}
+
+/* MAIN ARTICLE AREA */
+.center{
+    max-width:854px;
+    margin:auto;
 }
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
