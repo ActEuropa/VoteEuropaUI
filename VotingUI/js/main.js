@@ -46,6 +46,7 @@ function LoadQuestions(page_nb)
         html = html + ListItem_html.replace("$TITLE",Questions[i].title).replace("$VOTEICON",iconurl).replace("$ID", Questions[i].id).replace("$TIMELEFT",datestring);
     }
   document.getElementById("selectionarea").innerHTML = html;
+  $(".nano").nanoScroller();
   $("#spinner").hide();
   $('table.listitem').click(function() {
        var id = $(this).attr('id');
@@ -124,7 +125,8 @@ function LoadQuestions(page_nb)
            }
        }
        $('#selectionarea').css('height',$('#votingarea').height()+76);
-
+       //TODO Figure out why you need to click on items twice for the scrollbar correctly.
+       $(".nano").nanoScroller();
    });
    $("#archivedbutton").click(function(){
        $("#activebutton").css("visibility","visible");
